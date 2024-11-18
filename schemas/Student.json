@@ -1,0 +1,45 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "Student": { "$ref": "#/definitions/Student" } },
+	"required": ["Student"],
+	"title": "Student",
+	"definitions": {
+		"Student": {
+			"$id": "#/properties/Student",
+			"type": "object",
+			"title": "Studentschema",
+			"required": [ "firstName", "lastName", "phoneNumber", "email", "school", "password"],
+			"uniqueIndexFields": ["email", "nin"],
+			"properties": {
+                "studentId": {"type": "string", "title": "Student Id"},
+				"studentJssId": {"type": "string", "title": "Middle basic student id"},
+				"studentSssId": {"type": "string", "title": "Upper basic student id"},
+				"firstName": { "type": "string", "title": "First Name" },
+                "middleName": { "type": "string", "title": "Middle Name" },
+                "lastName": { "type": "string", "title": "Last Name" },
+				"phoneNumber": { "type": "string", "title": "Phone Number" },
+				"email": { "type": "string", "title": "Email" },
+                "nin": { "type": "string", "title": "NIN" },
+				"school": { "type": "string", "title": "School" },
+                "class": { "type": "string", "title": "Class" },
+                "parentEmail": { "type": "string", "title": "Parent Email" },
+                "guardianEmail": { "type": "string", "title": "Guardian Email" },
+				"studentPrimaryId": {"type": "string", "title": "Student SSS Id"},
+				"studentSecondaryId": {"type": "string", "title": "Student SSS Id"},
+				"password": { "type": "string", "minLength": 8, "title": "Password" }
+			}
+		}
+	},
+	"_osConfig": {
+		"ownershipAttributes": [
+			{
+				"email": "/email",
+				"mobile": "/phoneNumber",
+				"userId": "/email",
+				"password": "/password"
+			}
+		],
+		"inviteRoles": ["anonymous"]
+	}
+}

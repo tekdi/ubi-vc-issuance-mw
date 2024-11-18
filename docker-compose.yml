@@ -1,0 +1,11 @@
+version: '3.6'
+
+services:
+  backend:
+    image: dsn-dpi-backend-service:v1
+    container_name: 'dsn-dpi-backend-service'
+    restart: always
+    ports:
+      - 3399:3399
+    env_file:
+      - /home/ubuntu/dsn/dsn_backend/.env

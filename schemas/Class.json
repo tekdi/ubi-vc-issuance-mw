@@ -1,0 +1,25 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "Class": { "$ref": "#/definitions/Class" } },
+	"required": ["Class"],
+	"title": "Class",
+	"definitions": {
+		"Class": {
+			"$id": "#/properties/Class",
+			"type": "object",
+			"title": "Classschema",
+			"required": ["className"],
+			"properties": {
+				"schoolId": { "type": "string", "title": "School Id" },
+                "className": { "type": "string", "title": "Class Name" },
+                "classSize": { "type": "string", "title": "Class Size" },
+                "teachersAssigned": { "type": "string", "title": "Teacher's Assigned" },
+                "academicYear": { "type": "string", "title": "academicYear" }
+			}
+		}
+	},
+	"_osConfig": {
+		"inviteRoles": ["School"]
+	}
+}

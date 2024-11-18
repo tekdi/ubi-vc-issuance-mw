@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" />
+  <style>
+    @font-face {
+      font-family: "OldEnglish";
+      src: url("https://suraj-tekdi.github.io/dsn-dpi-backend-service/template/assests/images/oldenglishtextmt.ttf") format("truetype");
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fff;
+      width: 100%;
+      margin: 0;
+      padding: 0px;
+    }
+
+    .certificate-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      display: table;
+    }
+
+    .certificate-container {
+      display: table-row;
+      width: 100%;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .left-section,
+    .right-section {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    .left-section {
+      width: 20%;
+      padding: 40px;
+      background-image: url("https://suraj-tekdi.github.io/dsn-dpi-backend-service/template/assests/images/Stick.png");
+      background-size: contain;
+      background-position: top right;
+      background-repeat: repeat-y;
+      background-color: transparent;
+    }
+
+    .right-section {
+      width: 80%;
+      padding: 30px;
+      background-image: url('https://suraj-tekdi.github.io/dsn-dpi-backend-service/template/assests/images/BGDb.png');
+      background-size: contain;
+      background-position-x: -150px;
+      /* background-position: right; */
+    }
+
+    .certificate-content {
+      text-align: center;
+      font-family: 'Old Standard TT', serif;
+      color: #234d20;
+      width: 100%;
+    }
+
+    .header-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .logo {
+      width: 110px;
+      margin-top: 10px;
+    }
+
+    .cert-info-wrapper {
+      text-align: end;
+    }
+
+    .cert-info {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .sub-title {
+      font-size: 19px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      display: inline-block;
+    }
+
+    .cert-number {
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .main-title {
+      font-family: 'OldEnglish', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      margin: 20px 0;
+      color: #008e31;
+    }
+
+    .certification-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      margin: 10px;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .candidate-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 15px 0;
+      text-transform: uppercase;
+      margin-bottom: -0.1rem;
+    }
+
+    .name-divider {
+      width: 90%;
+      border: 0;
+      border-top: 2px solid #2d5a27;
+      margin: 10px auto;
+    }
+
+    .school-name-initial {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      margin: 1rem 0 0 0;
+    }
+
+    .school-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1rem 0 1.2rem 0;
+    }
+
+    .cert-body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 20px 0;
+    }
+
+    .cert-body span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+
+    table {
+      page-break-inside: avoid;
+    }
+
+    .grades-table {
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 15px 10px;
+      margin-top: 20px;
+    }
+
+    .grades-table th,
+    .grades-table td {
+      padding: 5px 10px;
+      box-shadow: 0 8px 6px rgb(0 0 0 / 20%);
+      height: 50px;
+      text-transform: uppercase;
+    }
+
+    .th-subject {
+      background-color: rgb(232 241 227 / 64%);
+      font-weight: 600;
+      text-align: left;
+      width: 40%;
+    }
+
+    .th-grade {
+      background: #1f4d1fc7;
+      color: #fff;
+      font-weight: 600;
+      width: 10%;
+    }
+
+    .subject {
+      background-color: rgb(255 255 255 / 58%);
+      text-align: left;
+      width: 40%;
+    }
+
+    .grade {
+      background-color: #34762a;
+      opacity: 0.7;
+      width: 10%;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      vertical-align: middle;
+      height: 50px;
+    }
+
+    .footer {
+      margin-top: 30px;
+    }
+
+    .footer-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    .candidate-number {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .signature-section {
+      display: flex;
+      margin: 0 auto;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .signature-area {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      flex-direction: column;
+    }
+
+    .signature-img {
+      width: 150px;
+      height: auto;
+    }
+
+    .signature-divider {
+      width: calc(1.1 * 150px);
+      border: 0;
+      border-top: 2px solid #2d5a27;
+      margin: 10px auto;
+    }
+
+    .signature-text {
+      font-family: 'Poppins', sans-serif;
+      margin-top: 5px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .qr-code-img {
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+    }
+
+    .left-curvy-border {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    .right-curvy-border {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .logoTitleWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="certificate-wrapper">
+    <div class="certificate-container">
+      <div class="left-section"></div>
+      <div class="right-section">
+        <div class="certificate-content">
+          <h1 class="header-title">FEDERAL REPUBLIC OF NIGERIA</h1>
+          <div style="text-align: center; margin: 20px; margin-bottom: 0px">
+            <img src="https://suraj-tekdi.github.io/dsn-dpi-backend-service/template/assests/images/LOGO.png"
+                alt="Logo" class="logo" />
+        </div>
+        <p class="sub-title">EOD STATE</p>
+
+          <div class="cert-info-wrapper">
+            <div class="cert-info">
+              <p class="cert-number">CERT NO.: {{certificateNo}}</p>
+            </div>
+          </div>
+          <h2 class="main-title">Basic Education Certificate</h2>
+          <p class="certification-text">This is to certify that</p>
+          <h3 class="candidate-name">{{firstName}} {{lastName}}</h3>
+          <hr class="name-divider" />
+          <p class="school-name-initial">of</p>
+          <p class="school-name">{{school}}</p>
+          <p class="cert-body">Completed a <span>{{duration}} Junior Secondary Courses in 2024</span> and performed a
+            follow</p>
+          <table class="grades-table">
+            <tr>
+              <th class="th-subject left-curvy-border">SUBJECT</th>
+              <th class="th-grade">GRADE</th>
+              <th class="th-subject">SUBJECT</th>
+              <th class="th-grade right-curvy-border">GRADE</th>
+            </tr>
+            {{#if subject1}}
+            <tr>
+              <td class="subject left-curvy-border">{{subject1}}</td>
+              <td class="grade">{{grade1}}</td>
+              {{#if subject2}}
+              <td class="subject">{{subject2}}</td>
+              <td class="grade right-curvy-border">{{grade2}}</td>
+              {{else}}
+              <td colspan="2"></td>
+              {{/if}}
+            </tr>
+            {{/if}}
+
+            {{#if subject3}}
+            <tr>
+              <td class="subject left-curvy-border">{{subject3}}</td>
+              <td class="grade">{{grade3}}</td>
+              {{#if subject4}}
+              <td class="subject">{{subject4}}</td>
+              <td class="grade right-curvy-border">{{grade4}}</td>
+              {{else}}
+              <td colspan="2"></td>
+              {{/if}}
+            </tr>
+            {{/if}}
+
+            {{#if subject5}}
+            <tr>
+              <td class="subject left-curvy-border">{{subject5}}</td>
+              <td class="grade">{{grade5}}</td>
+              {{#if subject6}}
+              <td class="subject">{{subject6}}</td>
+              <td class="grade right-curvy-border">{{grade6}}</td>
+              {{else}}
+              <td colspan="2"></td>
+              {{/if}}
+            </tr>
+            {{/if}}
+
+            {{#if subject7}}
+            <tr>
+              <td class="subject left-curvy-border">{{subject7}}</td>
+              <td class="grade">{{grade7}}</td>
+              {{#if subject8}}
+              <td class="subject">{{subject8}}</td>
+              <td class="grade right-curvy-border">{{grade8}}</td>
+              {{else}}
+              <td colspan="2"></td>
+              {{/if}}
+            </tr>
+            {{/if}}
+
+            {{#if subject9}}
+            <tr>
+              <td class="subject left-curvy-border">{{subject9}}</td>
+              <td class="grade">{{grade9}}</td>
+              {{#if subject10}}
+              <td class="subject">{{subject10}}</td>
+              <td class="grade right-curvy-border">{{grade10}}</td>
+              {{else}}
+              <td colspan="2"></td>
+              {{/if}}
+            </tr>
+            {{/if}}
+          </table>
+          <div class="footer">
+            <p class="footer-text">This certificate is awarded by the Ministry of Education Edo State Nigeria</p>
+            <p class="candidate-number">CANDIDATE NO.: {{candidateNo}}</p>
+            <img src="https://suraj-tekdi.github.io/dsn-dpi-backend-service/template/assests/images/sign.png"
+                  alt="Signature" class="signature-img" />
+                <hr class="signature-divider" />
+                <p class="signature-text">Registrar, Examination</p>
+              <img src="data:image/png;base64,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"
+                alt="QR Code" class="qr-code-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "schema": "https://schema.org/",
+        "DsnResultCredential": {
+            "@id": "https://suraj-tekdi.github.io/dsn-dpi-backend-service/schemas/result.json#DsnResultCredential",
+            "@context": {
+                "@version": 1.1,
+                "id": "@id",
+                "studentId": "schema:Text",
+                "firstName": "schema:Text",
+                "middleName": "schema:Text",
+                "lastName": "schema:Text",
+                "school": "schema:Text",
+                "class": "schema:Text",
+                "date": "schema:Text",
+                "subject1": "schema:Text",
+                "subject2": "schema:Text",
+                "subject3": "schema:Text",
+                "subject4": "schema:Text",
+                "subject5": "schema:Text",
+                "subject6": "schema:Text",
+                "subject7": "schema:Text",
+                "subject8": "schema:Text",
+                "subject9": "schema:Text",
+                "subject10": "schema:Text",
+                "grade1": "schema:Text",
+                "grade2": "schema:Text",
+                "grade3": "schema:Text",
+                "grade4": "schema:Text",
+                "grade5": "schema:Text",
+                "grade6": "schema:Text",
+                "grade7": "schema:Text",
+                "grade8": "schema:Text",
+                "grade9": "schema:Text",
+                "grade10": "schema:Text",
+                "candidateNo": "schema:Text",
+                "certificateNo": "schema:Text",
+                "academicYear": "schema:Text",
+                "duration": "schema:Text",
+                "degree": "schema:Text"
+            }
+        }
+    }
+}
