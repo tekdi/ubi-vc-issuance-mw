@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "Inspector": { "$ref": "#/definitions/Inspector" } },
+	"required": ["Inspector"],
+	"title": "Inspector",
+	"definitions": {
+		"Inspector": {
+			"$id": "#/properties/Inspector",
+			"type": "object",
+			"title": "Inspectorschema",
+			"required": ["name", "email", "phoneNumber", "password"],
+			"uniqueIndexFields": ["email"],
+			"properties": {
+                "name": {"type": "string", "title": "Name"},
+                "email": { "type": "string", "title": "Email" },
+				"phoneNumber": { "type": "string", "title": "Phone Number" },
+				"status": { "type": "string", "title": "Status" },
+				"password": { "type": "string", "minLength": 8, "title": "Password" }
+			}
+		}
+	},
+	"_osConfig": {
+		"ownershipAttributes": [
+			{
+				"email": "/email",
+				"mobile": "/phoneNumber",
+				"userId": "/email",
+				"password": "/password"
+			}
+		],
+		"inviteRoles": ["anonymous"]
+	}
+}

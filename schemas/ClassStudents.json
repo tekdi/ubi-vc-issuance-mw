@@ -1,0 +1,24 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "ClassStudents": { "$ref": "#/definitions/ClassStudents" } },
+	"required": ["ClassStudents"],
+	"title": "ClassStudents",
+	"definitions": {
+		"ClassStudents": {
+			"$id": "#/properties/ClassStudents",
+			"type": "object",
+			"title": "ClassStudentsschema",
+			"required": ["className"],
+			"properties": {
+				"studentId": { "type": "string", "title": "Student Id" },
+                "classId": { "type": "string", "title": "Class Id" },
+                "schoolId": { "type": "string", "title": "School Id" },
+                "status": { "type": "string", "title": "Status" }
+			}
+		}
+	},
+	"_osConfig": {
+		"inviteRoles": ["School"]
+	}
+}

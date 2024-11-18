@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "Teacher": { "$ref": "#/definitions/Teacher" } },
+	"required": ["Teacher"],
+	"title": "Teacher",
+	"definitions": {
+		"Teacher": {
+			"$id": "#/properties/Teacher",
+			"type": "object",
+			"title": "Teacherschema",
+			"required": ["name", "email", "phoneNumber"],
+			"uniqueIndexFields": ["email", "studentId", "nin"],
+			"properties": {
+                "schoolId": {"type": "string", "title": "School ID"},
+				"name": { "type": "string", "title": "Name" },
+                "email": { "type": "string", "title": "Email" },
+				"phoneNumber": { "type": "string", "title": "Phone Number" },
+                "teacherSchoolId": { "type": "string", "title": "Teacher Id" },
+				"status": { "type": "string", "title": "Status" },
+				"password": { "type": "string", "minLength": 8, "title": "Password" }
+			}
+		}
+	},
+	"_osConfig": {
+		"ownershipAttributes": [
+			{
+				"email": "/email",
+				"mobile": "/phoneNumber",
+				"userId": "/email",
+				"password": "/password"
+			}
+		],
+		"inviteRoles": ["School"]
+	}
+}

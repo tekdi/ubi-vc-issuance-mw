@@ -1,0 +1,121 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+        "Results": {
+            "$ref": "#/definitions/Results"
+        }
+    },
+    "required": [
+        "Results"
+    ],
+    "title": "Results",
+    "definitions": {
+        "Results": {
+            "$id": "#/properties/Results",
+            "type": "object",
+            "title": "Resultsschema",
+            "required": [
+                "uniqueId",
+                "studentId",
+                "firstName",
+                "lastName",
+                "schoolId"
+            ],
+            "uniqueIndexFields": [
+                "uniqueId"
+            ],
+            "properties": {
+                "uniqueId": {
+                    "type": "string",
+                    "title": "Unique Id"
+                },
+                "studentId": {
+                    "type": "string",
+                    "title": "Student Id"
+                },
+                "examinerId": {
+                    "type": "string",
+                    "title": "Examiner Id"
+                },
+                "schoolType": {
+                    "type": "string",
+                    "title": "school Type"
+                },
+                "firstName": {
+                    "type": "string",
+                    "title": "First Name"
+                },
+                "middleName": {
+                    "type": "string",
+                    "title": "Middle Name"
+                },
+                "lastName": {
+                    "type": "string",
+                    "title": "Last Name"
+                },
+                "schoolId": {
+                    "type": "string",
+                    "title": "schoolId"
+                },
+                "schoolName": {
+                    "type": "string",
+                    "title": "school Name"
+                },
+                "examDate": {
+                    "type": "string",
+                    "title": "Exam Date"
+                },
+                "subjectAndGrade": {
+                    "type": "string",
+                    "title": "Subject And Grade"
+                },
+                "academicYear": {
+                    "type": "string",
+                    "title": "Academic Year"
+                },
+                "duration": {
+                    "type": "string",
+                    "title": "Duration"
+                },
+                "degree": {
+                    "type": "string",
+                    "title": "Degree"
+                },
+                "status": {
+                    "type": "string",
+                    "title": "Status"
+                },
+                "examinerName": {
+                    "type": "string",
+                    "title": "Examiner Name"
+                },
+                "grade": {
+                    "type": "string",
+                    "title": "Grade"
+                },
+                "term": {
+                    "type": "string",
+                    "title": "Term"
+                },
+                "certificateId": {
+                    "type": "string",
+                    "title": "Certificate Id"
+                },
+                "certificateNo": {
+                    "type": "string",
+                    "title": "Certificate No"
+                },
+                "candidateNo": {
+                    "type": "string",
+                    "title": "Candidate Id"
+                }
+            }
+        }
+    },
+    "_osConfig": {
+        "inviteRoles": [
+            "anonymous"
+        ]
+    }
+}

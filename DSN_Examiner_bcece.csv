@@ -1,0 +1,4 @@
+Student Id,School Type,Student FirstName,Student MiddleName,Student LastName,School Id,School Name,Grade,Term,Exam Date,Subject and Grade,Duration,Degree
+1NSS990,primary,John,w,Doe,1011,NIGERIA SECONDARY SCHOOL,5,60,"26TH AUGUST, 2024","ENGLISH | A, HINDI | B, MATHEMATICS | A, PHYSICS | B, CHEMISTRY | C, BIO | A",Three,Junior secondary course
+1NSS991,secondary,Jane,K,Smith,1012,NIGERIA SECONDARY SCHOOL,6,61,"26TH AUGUST, 2024","ENGLISH | A, HINDI | B, MATHEMATICS | A, PHYSICS | B, CHEMISTRY | C, BIO | A",Three,Junior secondary course
+1NSS992,secondary,Jack,w,Ryan,1013,NIGERIA SECONDARY SCHOOL,7,62,"26TH AUGUST, 2024","ENGLISH | A, HINDI | B, MATHEMATICS | A, PHYSICS | B, CHEMISTRY | C, BIO | A",Three,Junior secondary course

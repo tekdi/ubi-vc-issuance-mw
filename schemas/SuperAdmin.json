@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"type": "object",
+	"properties": { "SuperAdmin": { "$ref": "#/definitions/SuperAdmin" } },
+	"required": ["SuperAdmin"],
+	"title": "SuperAdmin",
+	"definitions": {
+		"SuperAdmin": {
+			"$id": "#/properties/SuperAdmin",
+			"type": "object",
+			"title": "SuperAdminschema",
+			"required": ["name", "email", "password"],
+			"uniqueIndexFields": ["email"],
+			"properties": {
+                "name": {"type": "string", "title": "Name"},
+                "email": { "type": "string", "title": "email" },
+				"phoneNumber": { "type": "string", "title": "Phone Number" },
+				"password": { "type": "string", "minLength": 8, "title": "Password" }
+			}
+		}
+	},
+	"_osConfig": {
+		"ownershipAttributes": [
+			{
+				"email": "/email",
+				"userId": "/email",
+				"password": "/password"
+			}
+		],
+		"inviteRoles": ["SuperAdmin"]
+	}
+}
