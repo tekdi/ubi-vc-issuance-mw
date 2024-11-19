@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Deploy Stack
-        uses: easingthemes/ssh-deploy@main
-        env:
+      #- name: Deploy Stack
+       # uses: easingthemes/ssh-deploy@main
+        #env:
 
       - name: Checkout Code
         uses: actions/checkout@v3
