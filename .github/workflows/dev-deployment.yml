@@ -1,62 +1,36 @@
-
-name: Deployment on the DEV server
-on:
-  push: 
+name: Deploy to Wallet DEV
+on: 
+  push:  
     branches:
       - main
-jobs:
-  ISSUANCE-DEV-DEPLOYMENT:
+jobs: 
+  Deploy:
+    name: Deploy to DEV
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      #- name: Deploy Stack
-       # uses: easingthemes/ssh-deploy@main
-        #env:
-
-      - name: Checkout Code
+      - name: Checkout code 
         uses: actions/checkout@v3
-
-      - name: Deploy via SSH
+       
+      - name: Deploy to DEV
         uses: easingthemes/ssh-deploy@main
-        with:
-          #SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_DEV }}
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY_DEV }}
           REMOTE_HOST: ${{ secrets.HOST_NAME_DEV }}
           REMOTE_USER: ${{ secrets.USERNAME_DEV }}
-          SSH_CMD_ARGS: "-o StrictHostKeyChecking=no"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_DEV }}
-
-      - name: Debug SSH Key
-        run: |
-          if [ -z "${{ secrets.EC2_SSH_KEY_DEV }}" ]; then
-            echo "SSH key is missing!"
-            exit 1
-          else
-            echo "SSH key is set."
-          fi
+       
 
       - name: Set up SSH key
         run: |
          mkdir -p ~/.ssh
-         echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+         echo "${{ secrets.SSH_KEY_DEV }}" > ~/.ssh/id_rsa
          chmod 600 ~/.ssh/id_rsa
          # Add the SSH key to the known_hosts file (replace hostname with your actual hostname)
-         ssh-keyscan -H ${{ secrets.HOST_DNS }} >> ~/.ssh/known_hosts
-         #  with:
-       #   host: ${{ secrets.HOST_NAME_DEV }}
-        #  username: ${{ secrets.USERNAME_DEV }}
-         # key: ${{ secrets.EC2_SSH_KEY_DEV }}
-          #port: ${{ secrets.PORT_DEV }}
+         ssh-keyscan -H ${{ secrets.HOST_NAME_DEV}} >> ~/.ssh/known_hosts
+         sudo apt-get install sshpass
 
       - name: Deploy to server
         run: |
-         # script: |
-          #  echo "Connecting to ${{ secrets.HOST_NAME_DEV }} on port ${{ secrets.PORT_DEV }}"
-           # whoami
-            cd ${{ secrets.TARGET_DEV_DIR }}
-            if [ -f .env ]; then
-            rm .env
-            fi
-            echo "${{ secrets.DEV_ENV }}" > .env
-            ls -ltra
-            ./deploy.sh
+          sshpass -p '${{ secrets.SSH_KEY_DEV }}' ssh -v -o StrictHostKeyChecking=no ${{ secrets.USERNAME_DEV }}@${{ secrets.HOST_NAME_DEV }} <<'ENDSSH'
+          cd ${{ secrets.TARGET_DEV_DIR }}
+          ./deploy.sh
+          ENDSSH
