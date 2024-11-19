@@ -12,9 +12,19 @@ jobs:
       - name: Deploy Stack
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_DEV }}
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          #SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_DEV }}
           REMOTE_HOST: ${{ secrets.HOST_NAME_DEV }}
           REMOTE_USER: ${{ secrets.USERNAME_DEV }}
+          SSH_CMD_ARGS: "-o StrictHostKeyChecking=no"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY_DEV }}
 
       - name: Debug SSH Key
         run: |
