@@ -1,4 +1,4 @@
-name: Deploy to Wallet DEV
+name: Deploy to ISSUANCE DEV
 on: 
   push:  
     branches:
