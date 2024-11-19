@@ -1,7 +1,9 @@
 
 name: Deployment on the DEV server
 on:
-  workflow_dispatch:
+  push: 
+    branches:
+      - main
 jobs:
   ISSUANCE-DEV-DEPLOYMENT:
     runs-on: ubuntu-latest
