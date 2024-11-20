@@ -183,48 +183,9 @@ export class InspectorService {
   async issueCertificate2(studentDetail, authToken) {
     console.log('authToken', authToken);
 
-    const { subjects, grades } = this.generateSubjectAndGrade(
-      studentDetail.subjectAndGrade,
-    );
-
-    const updates = [];
     if (studentDetail) {
-      updates.push({
-        studentId: studentDetail.studentId,
-        firstName: studentDetail.firstName,
-        middleName: studentDetail.middleName,
-        lastName: studentDetail.lastName,
-        school: studentDetail.schoolName,
-        date: studentDetail.examDate,
-        subject1: subjects[0],
-        subject2: subjects[1],
-        subject3: subjects[2],
-        subject4: subjects[3],
-        subject5: subjects[4],
-        subject6: subjects[5],
-        subject7: subjects[6],
-        subject8: subjects[7],
-        subject9: subjects[8],
-        subject10: subjects[9],
-        grade1: grades[0],
-        grade2: grades[1],
-        grade3: grades[2],
-        grade4: grades[3],
-        grade5: grades[4],
-        grade6: grades[5],
-        grade7: grades[6],
-        grade8: grades[7],
-        grade9: grades[8],
-        grade10: grades[9],
-        candidateNo: studentDetail.candidateNo,
-        certificateNo: studentDetail.certificateNo,
-        academicYear: studentDetail.academicYear,
-        duration: studentDetail.duration,
-        degree: studentDetail.degree,
-      });
-      //return updates
       const credData = await this.credentialsService.issueCredential2(
-        updates[0],
+        studentDetail,
       );
 
       console.log('credData', credData);
@@ -397,51 +358,8 @@ export class InspectorService {
     if (resultsData.length > 0) {
       const studentDetail = resultsData[0];
 
-      const { subjects, grades } = this.generateSubjectAndGrade(
-        studentDetail.subjectAndGrade,
-      );
-
       if (studentDetail) {
-        const data = {
-          studentId: studentDetail.studentId,
-          firstName: studentDetail.firstName,
-          middleName: studentDetail.middleName,
-          lastName: studentDetail.lastName,
-          school: studentDetail.schoolName,
-          date: studentDetail.examDate,
-          subject1: subjects[0],
-          subject2: subjects[1],
-          subject3: subjects[2],
-          subject4: subjects[3],
-          subject5: subjects[4],
-          subject6: subjects[5],
-          subject7: subjects[6],
-          subject8: subjects[7],
-          subject9: subjects[8],
-          subject10: subjects[9],
-          grade1: grades[0],
-          grade2: grades[1],
-          grade3: grades[2],
-          grade4: grades[3],
-          grade5: grades[4],
-          grade6: grades[5],
-          grade7: grades[6],
-          grade8: grades[7],
-          grade9: grades[8],
-          grade10: grades[9],
-          candidateNo: studentDetail.candidateNo,
-          certificateNo: studentDetail.certificateNo ?? null,
-          academicYear: studentDetail.academicYear,
-          duration: studentDetail.duration,
-          degree: studentDetail.degree,
-          certificateId: studentDetail.certificateId ?? null,
-          schoolType: studentDetail.schoolType ?? null,
-          subjectCount: subjects.length,
-        };
-
-        console.log('data', data);
-
-        return data;
+        return studentDetail;
       }
     } else {
       throw new HttpException(

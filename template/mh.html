@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Certificate</title>
+    <title>Marksheet</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -29,26 +29,47 @@
       }
       .header h2 {
         font-size: 20px;
+        margin-top: 0;
       }
-      .student-info,
-      .performance,
-      .subjects {
-        margin: 20px 0;
+      .content {
         text-align: left;
+        margin: 20px 0;
         font-size: 16px;
       }
-      .student-info h3,
-      .performance h3,
-      .subjects h3 {
+      .content h3 {
+        color: #008e31;
+        margin-bottom: 10px;
+      }
+      .content p {
+        margin: 5px 0;
+      }
+      .subjects table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      .subjects table,
+      .subjects th,
+      .subjects td {
+        border: 1px solid #008e31;
+      }
+      .subjects th,
+      .subjects td {
+        text-align: center;
+        padding: 8px;
+      }
+      .subjects th {
+        background-color: #e8f5e9;
         color: #008e31;
       }
       .footer {
         margin-top: 20px;
         font-size: 14px;
         color: gray;
+        text-align: center;
       }
       .signature {
-        margin-top: 20px;
+        margin-top: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -62,42 +83,60 @@
     <div class="certificate">
       <div class="header">
         <h1>Maharashtra State Education Board</h1>
-        <h2>Sunrise Public School</h2>
+        <h2>{{schoolName}}</h2>
       </div>
       <p><strong>Certificate of Academic Achievement</strong></p>
       <p>This is to certify that</p>
       <h2>{{firstName}} {{middleName}} {{lastName}}</h2>
       <p>Student ID: {{studentId}}</p>
 
-      <div class="student-info">
+      <div class="content">
         <h3>School Details:</h3>
-        <p>School Name: {{school}}</p>
-        <p>Academic Year: {{academicYear}}</p>
-      </div>
+        <p><strong>School Name:</strong> {{schoolName}}</p>
+        <p><strong>Academic Year:</strong> {{academicYear}}</p>
+        <p><strong>Exam Date:</strong> {{examDate}}</p>
 
-      <div class="performance">
         <h3>Performance:</h3>
-        <p>CGPA: {{Performance.cgpa}} / {{Performance.cgpaMax}}</p>
-        <p>Grade: {{Performance.grade}}</p>
-        <p>Percentage: {{Performance.percentage}}</p>
-        <p>Result: {{Performance.result}}</p>
-      </div>
+        <p>
+          <strong>CGPA:</strong> {{Performance.cgpa}} / {{Performance.cgpaMax}}
+        </p>
+        <p><strong>Grade:</strong> {{Performance.grade}}</p>
+        <p><strong>Percentage:</strong> {{Performance.percentage}}%</p>
+        <p><strong>Result:</strong> {{Performance.result}}</p>
 
-      <div class="subjects">
         <h3>Subjects:</h3>
-        <ul>
-          {{#Subjects}}
-          <li>
-            {{name}}: {{marksTotal}} / {{marksMax}} (Theory: {{marksTheory}},
-            Practical: {{marksPractical}})
-          </li>
-          {{/Subjects}}
-        </ul>
+        <div class="subjects">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Total Marks</th>
+                <th>Theory Marks</th>
+                <th>Practical Marks</th>
+                <th>Max Theory</th>
+                <th>Max Practical</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#Subjects}}
+              <tr>
+                <td>{{name}}</td>
+                <td>{{marksTotal}}</td>
+                <td>{{marksTheory}}</td>
+                <td>{{marksPractical}}</td>
+                <td>{{marksMaxTheory}}</td>
+                <td>{{marksMaxPractical}}</td>
+              </tr>
+              {{/Subjects}}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="footer">
-        <p>Issued on: {{issuanceDate}}</p>
-        <p>Expiration Date: {{expirationDate}}</p>
+        <p><strong>Issued by:</strong> {{issuerName}}</p>
+        <p><strong>Issued on:</strong> {{issuanceDate}}</p>
+        <p><strong>Expiration Date:</strong> {{expirationDate}}</p>
       </div>
 
       <div class="signature">
