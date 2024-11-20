@@ -165,13 +165,11 @@ export class ExaminerService {
         if (result.status === 'fulfilled') {
           return {
             status: 'fulfilled',
-
             result: result.value.result,
           };
         } else {
           return {
             status: 'rejected',
-
             reason: result.reason,
           };
         }

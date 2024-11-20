@@ -227,8 +227,6 @@ export class CredentialsService {
       );
       return response.data;
     } catch (error) {
-      console.log('333333333333333333333333333', error);
-
       throw new HttpException('Credential not Found!', HttpStatus.NOT_FOUND);
     }
   }
