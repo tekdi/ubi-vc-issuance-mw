@@ -15,7 +15,7 @@ export class InspectorService {
   private cerTemplatePath: string = path.join(
     process.cwd(),
     'template',
-    'mh.html',
+    'marksheet.html',
   );
   private resTemplatePath: string = path.join(
     process.cwd(),
@@ -101,6 +101,7 @@ export class InspectorService {
           credData.credential.id,
           studentDetail.osid,
           authToken,
+          studentDetail,
         );
         console.log('resultData', resultData);
 
@@ -168,6 +169,7 @@ export class InspectorService {
           credData.credential.id,
           studentDetail.osid,
           authToken,
+          studentDetail,
         );
         console.log('resultData', resultData);
 
@@ -196,6 +198,7 @@ export class InspectorService {
           credData.credential.id,
           studentDetail.osid,
           authToken,
+          studentDetail,
         );
         console.log('resultData', resultData);
 

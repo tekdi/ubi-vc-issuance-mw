@@ -17,6 +17,7 @@ import { Response } from 'express';
 import { CredentialsService } from 'src/services/credentials/credentials.service';
 import * as path from 'path';
 import { createReadStream } from 'fs';
+import { CredsConfig } from '../Helper/CredsConfig';
 
 @Controller('inspector')
 export class InspectorController {

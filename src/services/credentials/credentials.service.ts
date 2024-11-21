@@ -155,13 +155,14 @@ export class CredentialsService {
   }
 
   async issueCredential2(studentDetails): Promise<any> {
-    console.log('studentDetails', studentDetails.DocumentType);
+    console.log('studentDetails', studentDetails);
     console.log('issuerId', this.issuerId);
     console.log('credentialSchemaId', this.credentialSchemaId);
     const credConfig =
       CredsConfig[
         studentDetails.DocumentType || studentDetails.vctype.split('/')[1]
       ];
+    console.log('------------', studentDetails);
 
     const data = {
       credential: {
@@ -174,7 +175,7 @@ export class CredentialsService {
         issuanceDate: new Date().toISOString(),
         expirationDate: credConfig.expirationDate,
         credentialSubject: {
-          id: `did:rcw:issuance-bbb1-4e5e-b6cc-8671c2b3df1e`,
+          id: `did:rcw:issuance-uba-bbb1-4e5e-b6cc-8671c2b3df1e`,
           type: credConfig.credentialSubjectType,
           ...studentDetails,
         },

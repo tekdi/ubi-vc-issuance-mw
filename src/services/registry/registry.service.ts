@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
+import { CredsConfig } from '../../Helper/CredsConfig';
 
 @Injectable()
 export class RegistryService {
@@ -44,9 +45,15 @@ export class RegistryService {
     certificateId,
     resultDataId,
     authToken,
+    studentDetail,
   ): Promise<any> {
     console.log('certificateId', certificateId);
     console.log('resultDataId', resultDataId);
+    const credConfig =
+      CredsConfig[
+        studentDetail.DocumentType || studentDetail.vctype.split('/')[1]
+      ];
+    console.log(credConfig);
 
     const data = {
       certificateId: certificateId,
@@ -65,7 +72,8 @@ export class RegistryService {
     try {
       const response = await lastValueFrom(
         this.httpService.put(
-          this.baseUrl + `/registry/api/v1/TenMarksheet/${resultDataId}`,
+          this.baseUrl +
+            `/registry/api/v1/${credConfig.schemaName}/${resultDataId}`,
           JSON.stringify(data),
           config,
         ),
@@ -145,14 +153,18 @@ export class RegistryService {
   }
 
   async searchResult(certificateNo: string): Promise<any> {
-    const url = this.baseUrl + '/registry/api/v1/TenMarksheet/search';
+    const url = this.baseUrl + '/registry/api/v1/marksheet/search';
     const headers = {
       'Content-Type': 'application/json',
       Cookie: 'JSESSIONID=DD3A1308B7B64B9C47B7CEEEECAD4A58',
     };
 
     const payload = {
-      filters: {},
+      filters: {
+        certificateNo: {
+          eq: certificateNo,
+        },
+      },
     };
 
     try {

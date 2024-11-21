@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "enrollmentCertificate": {
+      "$ref": "#/definitions/enrollmentCertificate"
+    }
+  },
+  "required": ["enrollmentCertificate"],
+  "title": "Enrollment Certificate",
+  "definitions": {
+    "enrollmentCertificate": {
+      "$id": "#/properties/enrollmentCertificate",
+      "type": "object",
+      "title": "Enrollment Certificate Schema",
+      "required": [
+        "studentId",
+        "schoolId",
+        "firstName",
+        "lastName",
+        "gradeLevel",
+        "schoolYear",
+        "studentStatus",
+        "schoolName",
+        "dayMonthYear"
+      ],
+      "uniqueIndexFields": ["studentId"],
+      "properties": {
+        "studentId": {
+          "type": "string",
+          "title": "Student Identifier"
+        },
+        "schoolId": {
+          "type": "string",
+          "title": "School Identifier"
+        },
+        "firstName": {
+          "type": "string",
+          "title": "First Name"
+        },
+        "middleName": {
+          "type": "string",
+          "title": "Middle Name"
+        },
+        "lastName": {
+          "type": "string",
+          "title": "Last Name"
+        },
+        "gradeLevel": {
+          "type": "string",
+          "title": "Grade Level"
+        },
+        "addressLine1": {
+          "type": "string",
+          "title": "Address Line 1"
+        },
+        "addressLine2": {
+          "type": "string",
+          "title": "Address Line 2"
+        },
+        "landmark": {
+          "type": "string",
+          "title": "Landmark"
+        },
+        "locality": {
+          "type": "string",
+          "title": "Locality"
+        },
+        "district": {
+          "type": "string",
+          "title": "District"
+        },
+        "pin": {
+          "type": "string",
+          "title": "PIN Code"
+        },
+        "state": {
+          "type": "string",
+          "title": "State"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
+        },
+        "schoolYear": {
+          "type": "string",
+          "title": "School Year"
+        },
+        "studentStatus": {
+          "type": "string",
+          "title": "Student Status"
+        },
+        "schoolName": {
+          "type": "string",
+          "title": "School Name"
+        },
+        "schoolRegistrationNumber": {
+          "type": "string",
+          "title": "School Registration Number"
+        },
+        "principalName": {
+          "type": "string",
+          "title": "Principal Name"
+        },
+        "principalDesignation": {
+          "type": "string",
+          "title": "Principal Designation"
+        },
+        "dayMonthYear": {
+          "type": "string",
+          "format": "date",
+          "title": "Day/Month/Year of Issuance"
+        },
+        "learnerReferenceNumber": {
+          "type": "string",
+          "title": "Learner Reference Number"
+        },
+        "certificateId": {
+          "type": "string",
+          "title": "Certificate Id"
+        },
+        "certificateNo": {
+          "type": "string",
+          "title": "Certificate No"
+        }
+      }
+    }
+  },
+  "_osConfig": {
+    "inviteRoles": ["anonymous"]
+  }
+}
