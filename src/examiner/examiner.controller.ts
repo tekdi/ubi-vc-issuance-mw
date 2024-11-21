@@ -44,13 +44,11 @@ export class ExaminerController {
     @Headers('authorization') authToken: string,
   ) {
     console.log('authToken', authToken);
-    const examiner = await this.registryService.getExaminerDetails(authToken);
-    //return examiner
-    const examinerId = examiner[0].osid;
-    const examinerName = examiner[0].name;
+
     const results = [];
     // console.log('request', request.body.academicYear);
     // console.log('request', request.body.classType);
+    const documentType = request.body.documentType.trim();
     //this.logger.log('uploadCsv /upload API')
     return new Promise((resolve, reject) => {
       createReadStream(file.path)
@@ -60,11 +58,8 @@ export class ExaminerController {
         })
         .on('end', async () => {
           const data = await this.examinerService.uploadResult(
-            // request.body.academicYear,
-            // request.body.classType,
             results,
-            // examinerId,
-            // examinerName,
+            documentType,
           );
           resolve(data);
         })

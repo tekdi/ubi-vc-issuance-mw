@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
+import { CredsConfig } from '../../Helper/CredsConfig';
 
 @Injectable()
 export class RegistryService {
@@ -13,30 +14,8 @@ export class RegistryService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  async inviteResultsData(studentDetails): Promise<any> {
-    console.log('inviteResultsData', studentDetails);
-    const data = {
-      uniqueId: studentDetails.uniqueId,
-      studentId: studentDetails.studentId ?? null,
-      examinerId: studentDetails.examinerId ?? null,
-      schoolType: studentDetails.schoolType ?? null,
-      firstName: studentDetails.firstName ?? null,
-      middleName: studentDetails.middleName ?? null,
-      lastName: studentDetails.lastName ?? null,
-      schoolId: studentDetails.schoolId ?? null,
-      schoolName: studentDetails.schoolName ?? null,
-      examDate: studentDetails.examDate,
-      subjectAndGrade: studentDetails.subjectAndGrade ?? null,
-      academicYear: studentDetails.academicYear ?? null,
-      duration: studentDetails.duration ?? null,
-      degree: studentDetails.degree ?? null,
-      status: 'pending',
-      examinerName: studentDetails.examinerName ?? null,
-      grade: studentDetails.grade,
-      term: studentDetails.term,
-      certificateNo: studentDetails.certificateNo,
-      candidateNo: studentDetails.candidateNo,
-    };
+  async inviteResultsData(data, credConfig): Promise<any> {
+    console.log('inviteData', data);
 
     const config = {
       headers: {
@@ -49,7 +28,7 @@ export class RegistryService {
       console.log('calling invite api');
       const response = await lastValueFrom(
         this.httpService.post(
-          this.baseUrl + '/registry/api/v1/Results/invite',
+          this.baseUrl + `/registry/api/v1/${credConfig.schemaName}/invite`,
           JSON.stringify(data),
           config,
         ),
@@ -66,9 +45,15 @@ export class RegistryService {
     certificateId,
     resultDataId,
     authToken,
+    studentDetail,
   ): Promise<any> {
     console.log('certificateId', certificateId);
     console.log('resultDataId', resultDataId);
+    const credConfig =
+      CredsConfig[
+        studentDetail.DocumentType || studentDetail.vctype.split('/')[1]
+      ];
+    console.log(credConfig);
 
     const data = {
       certificateId: certificateId,
@@ -87,7 +72,8 @@ export class RegistryService {
     try {
       const response = await lastValueFrom(
         this.httpService.put(
-          this.baseUrl + `/registry/api/v1/Results/${resultDataId}`,
+          this.baseUrl +
+            `/registry/api/v1/${credConfig.schemaName}/${resultDataId}`,
           JSON.stringify(data),
           config,
         ),
@@ -122,7 +108,7 @@ export class RegistryService {
     try {
       const response = await lastValueFrom(
         this.httpService.put(
-          this.baseUrl + `/registry/api/v1/Results/${resultDataId}`,
+          this.baseUrl + `/registry/api/v1/marksheet/${resultDataId}`,
           JSON.stringify(data),
           config,
         ),
@@ -167,7 +153,7 @@ export class RegistryService {
   }
 
   async searchResult(certificateNo: string): Promise<any> {
-    const url = this.baseUrl + '/registry/api/v1/Results/search';
+    const url = this.baseUrl + '/registry/api/v1/marksheet/search';
     const headers = {
       'Content-Type': 'application/json',
       Cookie: 'JSESSIONID=DD3A1308B7B64B9C47B7CEEEECAD4A58',

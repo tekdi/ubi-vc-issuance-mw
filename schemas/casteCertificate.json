@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": {
+    "casteCertificate": {
+      "$ref": "#/definitions/casteCertificate"
+    }
+  },
+  "required": ["casteCertificate"],
+  "title": "Caste Certificate",
+  "definitions": {
+    "casteCertificate": {
+      "$id": "#/properties/casteCertificate",
+      "type": "object",
+      "title": "Caste Certificate Schema",
+      "required": [
+        "aadharNumber",
+        "studentId",
+        "firstName",
+        "lastName",
+        "castName",
+        "castCategoryNumber",
+        "dateOfIssuance",
+        "certificateNumber"
+      ],
+      "uniqueIndexFields": ["studentId"],
+      "properties": {
+        "aadharNumber": {
+          "type": "string",
+          "title": "Aadhar Number"
+        },
+        "familyLeaderBhamashahNumber": {
+          "type": "string",
+          "title": "Family Leader Bhamashah Number"
+        },
+        "relationWithApplicant": {
+          "type": "string",
+          "title": "Relation with Applicant"
+        },
+        "studentId": {
+          "type": "string",
+          "title": "Student Identifier"
+        },
+        "schoolId": {
+          "type": "string",
+          "title": "School Identifier"
+        },
+        "firstName": {
+          "type": "string",
+          "title": "First Name"
+        },
+        "middleName": {
+          "type": "string",
+          "title": "Middle Name"
+        },
+        "lastName": {
+          "type": "string",
+          "title": "Last Name"
+        },
+        "castName": {
+          "type": "string",
+          "title": "Caste Name"
+        },
+        "castCategoryNumber": {
+          "type": "string",
+          "title": "Caste Category Number"
+        },
+        "addressLine1": {
+          "type": "string",
+          "title": "Address Line 1"
+        },
+        "addressLine2": {
+          "type": "string",
+          "title": "Address Line 2"
+        },
+        "house": {
+          "type": "string",
+          "title": "House"
+        },
+        "landmark": {
+          "type": "string",
+          "title": "Landmark"
+        },
+        "locality": {
+          "type": "string",
+          "title": "Locality"
+        },
+        "vtc": {
+          "type": "string",
+          "title": "Village/Town/City"
+        },
+        "district": {
+          "type": "string",
+          "title": "District"
+        },
+        "pin": {
+          "type": "string",
+          "title": "PIN Code"
+        },
+        "state": {
+          "type": "string",
+          "title": "State"
+        },
+        "country": {
+          "type": "string",
+          "title": "Country"
+        },
+        "orgName": {
+          "type": "string",
+          "title": "Organization Name"
+        },
+        "orgCode": {
+          "type": "string",
+          "title": "Organization Code"
+        },
+        "orgType": {
+          "type": "string",
+          "title": "Organization Type"
+        },
+        "orgOfficerName": {
+          "type": "string",
+          "title": "Officer Name"
+        },
+        "orgOfficerRank": {
+          "type": "string",
+          "title": "Officer Rank"
+        },
+        "orgOfficerSign": {
+          "type": "string",
+          "title": "Officer Signature"
+        },
+        "orgAddressLine1": {
+          "type": "string",
+          "title": "Organization Address Line 1"
+        },
+        "orgAddressLine2": {
+          "type": "string",
+          "title": "Organization Address Line 2"
+        },
+        "orgLandmark": {
+          "type": "string",
+          "title": "Organization Landmark"
+        },
+        "orgLocality": {
+          "type": "string",
+          "title": "Organization Locality"
+        },
+        "orgVtc": {
+          "type": "string",
+          "title": "Organization Village/Town/City"
+        },
+        "orgDistrict": {
+          "type": "string",
+          "title": "Organization District"
+        },
+        "orgPin": {
+          "type": "string",
+          "title": "Organization PIN Code"
+        },
+        "orgState": {
+          "type": "string",
+          "title": "Organization State"
+        },
+        "orgCountry": {
+          "type": "string",
+          "title": "Organization Country"
+        },
+        "dateOfIssuance": {
+          "type": "string",
+          "title": "Date of Issuance"
+        },
+        "certificateId": {
+          "type": "string",
+          "title": "Certificate Id"
+        },
+        "certificateNo": {
+          "type": "string",
+          "title": "Certificate No"
+        }
+      }
+    }
+  },
+  "_osConfig": {
+    "inviteRoles": ["anonymous"]
+  }
+}

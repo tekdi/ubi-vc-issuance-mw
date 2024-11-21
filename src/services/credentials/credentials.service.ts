@@ -1,6 +1,8 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
+import * as transformer from '../../Helper/transformers';
+import { CredsConfig } from '../../Helper/CredsConfig';
 
 @Injectable()
 export class CredentialsService {
@@ -156,64 +158,31 @@ export class CredentialsService {
     console.log('studentDetails', studentDetails);
     console.log('issuerId', this.issuerId);
     console.log('credentialSchemaId', this.credentialSchemaId);
+    const credConfig =
+      CredsConfig[
+        studentDetails.DocumentType || studentDetails.vctype.split('/')[1]
+      ];
+    console.log('------------', studentDetails);
+
     const data = {
       credential: {
         '@context': [
           'https://www.w3.org/2018/credentials/v1',
-          'https://suraj-tekdi.github.io/dsn-dpi-backend-service/schemas/result.json',
+          credConfig.context,
         ],
-        type: ['VerifiableCredential', 'DsnResultCredential'],
-        issuer: this.issuerId,
+        type: credConfig.type,
+        issuer: credConfig.credIssuerId,
         issuanceDate: new Date().toISOString(),
-        expirationDate: '2025-02-08T11:56:27.259Z',
+        expirationDate: credConfig.expirationDate,
         credentialSubject: {
-          id: 'did:schema:32d1f255-40b7-4f60-844c-2020516c4e6a',
-          type: 'DsnResultCredential',
-          studentId: studentDetails.studentId,
-          firstName: studentDetails.firstName,
-          middleName: studentDetails.middleName,
-          lastName: studentDetails.lastName,
-          phoneNumber: '7990195647',
-          email: 'manojuba@yopmail.com',
-          nin: '',
-          class: '5',
-          subject: 'maths',
-          grade: '5',
-          parentEmail: 'na',
-          guardianEmail: 'na',
-          school: studentDetails.school,
-          date: studentDetails.date,
-          subject1: studentDetails.subject1,
-          subject2: studentDetails.subject2,
-          subject3: studentDetails.subject3,
-          subject4: studentDetails.subject4,
-          subject5: studentDetails.subject5,
-          subject6: studentDetails.subject6,
-          subject7: studentDetails.subject7,
-          subject8: studentDetails.subject8,
-          subject9: studentDetails.subject9,
-          subject10: studentDetails.subject10,
-          grade1: studentDetails.grade1,
-          grade2: studentDetails.grade2,
-          grade3: studentDetails.grade3,
-          grade4: studentDetails.grade4,
-          grade5: studentDetails.grade5,
-          grade6: studentDetails.grade6,
-          grade7: studentDetails.grade7,
-          grade8: studentDetails.grade8,
-          grade9: studentDetails.grade9,
-          grade10: studentDetails.grade10,
-          candidateNo: studentDetails.candidateNo,
-          certificateNo: studentDetails.certificateNo,
-          academicYear: studentDetails.academicYear,
-          duration: studentDetails.duration,
-          degree: studentDetails.degree,
+          id: `did:rcw:issuance-uba-bbb1-4e5e-b6cc-8671c2b3df1e`,
+          type: credConfig.credentialSubjectType,
+          ...studentDetails,
         },
       },
-      credentialSchemaId: this.credentialSchemaId,
+      credentialSchemaId: credConfig.credsSchemaId,
       credentialSchemaVersion: '1.0.0',
-      tags: ['tag1', 'tag2', 'tag3'],
-      method: 'cbse',
+      tags: credConfig.tags,
     };
 
     const config = {
@@ -224,7 +193,7 @@ export class CredentialsService {
     };
 
     try {
-      console.log('issue credential payload', data);
+      // console.log('issue credential payload', data);
       const response = await lastValueFrom(
         this.httpService.post(
           this.baseUrl + '/credcredentials/issue',
@@ -259,8 +228,6 @@ export class CredentialsService {
       );
       return response.data;
     } catch (error) {
-      console.log('333333333333333333333333333', error);
-
       throw new HttpException('Credential not Found!', HttpStatus.NOT_FOUND);
     }
   }

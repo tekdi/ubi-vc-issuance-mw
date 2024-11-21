@@ -2,41 +2,31 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "properties": {
-    "Results": {
-      "$ref": "#/definitions/Results"
+    "marksheet": {
+      "$ref": "#/definitions/marksheet"
     }
   },
-  "required": ["Results"],
-  "title": "Results",
+  "required": ["marksheet"],
+  "title": "marksheet",
   "definitions": {
-    "Results": {
-      "$id": "#/properties/Results",
+    "marksheet": {
+      "$id": "#/properties/marksheet",
       "type": "object",
-      "title": "Resultsschema",
+      "title": "marksheetSchema",
       "required": [
-        "uniqueId",
         "studentId",
         "firstName",
-        "lastName",
-        "schoolId"
+        "schoolId",
+        "schoolName",
+        "examDate",
+        "academicYear",
+        "issuerName"
       ],
-      "uniqueIndexFields": ["uniqueId"],
+      "uniqueIndexFields": ["studentId"],
       "properties": {
-        "uniqueId": {
-          "type": "string",
-          "title": "Unique Id"
-        },
         "studentId": {
           "type": "string",
-          "title": "Student Id"
-        },
-        "examinerId": {
-          "type": "string",
-          "title": "Examiner Id"
-        },
-        "schoolType": {
-          "type": "string",
-          "title": "school Type"
+          "title": "Student Identifier"
         },
         "firstName": {
           "type": "string",
@@ -52,47 +42,59 @@
         },
         "schoolId": {
           "type": "string",
-          "title": "schoolId"
+          "title": "School Identifier"
         },
         "schoolName": {
           "type": "string",
-          "title": "school Name"
+          "title": "School Name"
+        },
+        "class": {
+          "type": "string",
+          "title": "class"
         },
         "examDate": {
           "type": "string",
-          "title": "Exam Date"
+          "title": "Date of Exam"
         },
-        "subjectAndGrade": {
+        "cgpa": {
           "type": "string",
-          "title": "Subject And Grade"
+          "title": "Cumulative Grade Point Average"
+        },
+        "cgpaMax": {
+          "type": "string",
+          "title": "Maximum Cumulative Grade Point Average"
+        },
+        "grade": {
+          "type": "string",
+          "title": "Grade obtained"
+        },
+        "marksMax": {
+          "type": "string",
+          "title": "Maximum Marks"
+        },
+        "marksTotal": {
+          "type": "string",
+          "title": "Total Marks"
+        },
+        "percentage": {
+          "type": "string",
+          "title": "Percentage of Marks"
+        },
+        "result": {
+          "type": "string",
+          "title": "Result of Examination"
         },
         "academicYear": {
           "type": "string",
           "title": "Academic Year"
         },
-        "duration": {
+        "issuerName": {
           "type": "string",
-          "title": "Duration"
+          "title": "Name of Issuer"
         },
-        "degree": {
+        "issuanceDate": {
           "type": "string",
-          "title": "Degree"
-        },
-        "status": {
-          "type": "string",
-          "title": "Status"
-        },
-        "examinerName": {
-          "type": "string",
-          "title": "Examiner Name"
-        },
-        "grade": {
-          "type": "string",
-          "title": "Grade"
-        },
-        "term": {
-          "type": "string",
-          "title": "Term"
+          "title": "Issuance Date"
         },
         "certificateId": {
           "type": "string",
@@ -101,10 +103,6 @@
         "certificateNo": {
           "type": "string",
           "title": "Certificate No"
-        },
-        "candidateNo": {
-          "type": "string",
-          "title": "Candidate Id"
         }
       }
     }

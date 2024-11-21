@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CredentialsService } from 'src/services/credentials/credentials.service';
 import { RegistryService } from 'src/services/registry/registry.service';
 const crypto = require('crypto');
-
+import * as transformer from '../Helper/transformers';
+import { CredsConfig } from '../Helper/CredsConfig';
 @Injectable()
 export class ExaminerService {
   constructor(
@@ -99,7 +100,7 @@ export class ExaminerService {
       const promises = [];
       updates.forEach((item) => {
         //promises.push(this.credentialsService.issueCredential(item))
-        promises.push(this.registryService.inviteResultsData(item));
+        promises.push(this.registryService.inviteResultsData(item, ''));
       });
       return await Promise.allSettled(promises);
     } else {
@@ -137,93 +138,15 @@ export class ExaminerService {
     return hash;
   }
 
-  async uploadResult(
-    // academicYear,
-    // classType,
-    result,
-    // examinerId,
-    // examinerName,
-  ) {
-    return result;
-    // const expectedHeaders = ['Student Id', 'School Type', 'Student FirstName', 'Student MiddleName', 'Student LastName', 'School Id', 'School Name', 'Grade', 'Term', 'Exam Date', 'Subject and Grade', 'Duration', 'Degree'];
-    const csvheader = Object.keys(result[0]);
-    // const areHeadersValid = this.arraysHaveSameElements(
-    //     expectedHeaders.map((key) => key.toLowerCase().replace(/_/g, '').replace(/ /g, '')),
-    //     csvheader.map((key) => key.toLowerCase().replace(/_/g, '').replace(/ /g, ''))
-    // );
+  async uploadResult(result, documentType) {
+    const credConfig = CredsConfig[documentType];
 
-    // if (!areHeadersValid) {
-    //     return { error: "Invalid CSV headers" };
-    // }
+    // Get the correct transformer and credConfig based on document type
+    const transformedData = transformer[credConfig.transformer](result);
 
-    const updates = result.map((log) => {
-      if (Object.keys(log).length) {
-        const getValue = (key: string) => {
-          const originalKey = csvheader.filter((header) => {
-            const iKey = key.toLowerCase().replace(/_/g, '').replace(/ /g, '');
-            const mKey = header
-              .toLowerCase()
-              .replace(/_/g, '')
-              .replace(/ /g, '');
-            return iKey === mKey;
-          });
-          return originalKey.length ? log[originalKey[0]] : null;
-        };
-
-        // return {
-        //   uniqueId: this.generateFixedId(
-        //     getValue('Student Id'),
-        //     getValue('Grade'),
-        //     getValue('Term'),
-        //     academicYear,
-        //   ),
-        //   studentId: getValue('Student Id').trim(' '),
-        //   schoolType: classType,
-        //   firstName: getValue('Student FirstName').trim(' '),
-        //   middleName: getValue('Student MiddleName').trim(' '),
-        //   lastName: getValue('Student LastName').trim(' '),
-        //   schoolId: getValue('School Id').trim(' '),
-        //   schoolName: getValue('School Name').trim(' '),
-        //   examDate: getValue('Exam Date').trim(' '),
-        //   subjectAndGrade: getValue('Subject and Grade').trim(' '),
-        //   academicYear: academicYear,
-        //   duration: getValue('Duration').trim(' '),
-        //   degree: getValue('Degree').trim(' '),
-        //   examinerId: examinerId,
-        //   examinerName: examinerName,
-        //   grade: getValue('Grade').trim(' '),
-        //   term: getValue('Term').trim(' '),
-        //   certificateNo:
-        //     academicYear.split('-')[1].trim(' ') +
-        //     '/' +
-        //     getValue('Grade').replace(/\s+/g, '').trim(' ') +
-        //     '/' +
-        //     getValue('Term').replace(/\s+/g, '').trim(' ') +
-        //     '/' +
-        //     getValue('Student Id').trim(' '),
-        //   candidateNo:
-        //     getValue('Grade').replace(/\s+/g, '').trim(' ') +
-        //     '/' +
-        //     getValue('Term').replace(/\s+/g, '').trim(' ') +
-        //     '/' +
-        //     getValue('Student Id').trim(' '),
-        // };
-      }
-    });
-
-    //return updates
-
-    // Use Promise.allSettled to handle both fulfilled and rejected promises
-    // const promises = updates.map((item) =>
-    //     this.registryService.inviteResultsData(item)
-    //         .then((response) => ({ status: 'fulfilled', studentId: item.studentId, result: response }))
-    //         .catch((error) => ({ status: 'rejected', studentId: item.studentId, reason: error.message }))
-    // );
-
-    const promises = updates.map((item) =>
-      this.registryService.inviteResultsData(item),
+    const promises = transformedData.map((item) =>
+      this.registryService.inviteResultsData(item, credConfig),
     );
-
     const results = await Promise.allSettled(promises);
 
     // Count fulfilled and rejected responses
@@ -242,13 +165,11 @@ export class ExaminerService {
         if (result.status === 'fulfilled') {
           return {
             status: 'fulfilled',
-            studentId: result.value.studentId,
             result: result.value.result,
           };
         } else {
           return {
             status: 'rejected',
-            studentId: result.reason.studentId,
             reason: result.reason,
           };
         }
