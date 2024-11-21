@@ -108,7 +108,7 @@ export class RegistryService {
     try {
       const response = await lastValueFrom(
         this.httpService.put(
-          this.baseUrl + `/registry/api/v1/Results/${resultDataId}`,
+          this.baseUrl + `/registry/api/v1/marksheet/${resultDataId}`,
           JSON.stringify(data),
           config,
         ),
