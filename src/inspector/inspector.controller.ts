@@ -18,11 +18,12 @@ import { CredentialsService } from 'src/services/credentials/credentials.service
 import * as path from 'path';
 import { createReadStream } from 'fs';
 import { CredsConfig } from '../Helper/CredsConfig';
-
+import axios from 'axios';
 @Controller('inspector')
 export class InspectorController {
   private certificateTemplateId = process.env.CERIFICATETEMPLATEID;
   private resultsTemplateId = process.env.RESULTSTEMPLATEID;
+  private baseUrl = process.env.URL;
 
   constructor(
     private readonly inspectorService: InspectorService,
@@ -390,6 +391,35 @@ export class InspectorController {
           width: '11.69in',
           timeout: 60000,
         };
+    }
+  }
+
+  @Get('downloadVC/:did')
+  async downloadJson(@Param('did') did: string, @Res() res: Response) {
+    const url = `${this.baseUrl}/credcredentials/${did}`;
+
+    try {
+      const apiResponse = await axios.get(url, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      // Setting headers for file download
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader(
+        'Content-Disposition',
+        `attachment; filename="response-${did}.json"`,
+      );
+
+      // Sending the file as response
+      return res.send(apiResponse.data);
+    } catch (error) {
+      // Handling errors
+      throw new HttpException(
+        `Error fetching data: ${error.response?.statusText || error.message}`,
+        error.response?.status || HttpStatus.BAD_REQUEST,
+      );
     }
   }
 }
