@@ -453,7 +453,7 @@ export class InspectorController {
 
       // Extract required fields
       const extractedData = data.map((item: any) => ({
-        name: item.firstName || '',
+        name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',
         documentType: documentType,
