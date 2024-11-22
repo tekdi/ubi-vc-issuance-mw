@@ -19,6 +19,8 @@ import * as path from 'path';
 import { createReadStream } from 'fs';
 import { CredsConfig } from '../Helper/CredsConfig';
 import axios from 'axios';
+import { parse } from 'json2csv';
+
 @Controller('inspector')
 export class InspectorController {
   private certificateTemplateId = process.env.CERIFICATETEMPLATEID;
@@ -416,6 +418,60 @@ export class InspectorController {
       return res.send(apiResponse.data);
     } catch (error) {
       // Handling errors
+      throw new HttpException(
+        `Error fetching data: ${error.response?.statusText || error.message}`,
+        error.response?.status || HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
+
+  @Get('downloadCSV/:documentType')
+  async downloadCSV(
+    @Param('documentType') documentType: string,
+    @Res() res: Response,
+  ) {
+    const url = `${this.baseUrl}/registry/api/v1/${documentType}/search`;
+
+    try {
+      const payload = {
+        offset: 0,
+        limit: 100,
+        filters: {
+          status: {
+            eq: 'issued',
+          },
+        },
+      };
+
+      const apiResponse = await axios.post(url, payload, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      const data = apiResponse.data;
+
+      // Extract required fields
+      const extractedData = data.map((item: any) => ({
+        name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
+        certificateID: item.certificateId || '',
+        class: item.class || '',
+        documentType: documentType,
+      }));
+
+      // Convert JSON to CSV
+      const csv = parse(extractedData);
+
+      // Set headers for file download
+      res.setHeader('Content-Type', 'text/csv');
+      res.setHeader(
+        'Content-Disposition',
+        `attachment; filename="response-${documentType}.csv"`,
+      );
+
+      // Send the CSV file as a response
+      return res.send(csv);
+    } catch (error) {
       throw new HttpException(
         `Error fetching data: ${error.response?.statusText || error.message}`,
         error.response?.status || HttpStatus.BAD_REQUEST,

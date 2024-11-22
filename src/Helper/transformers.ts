@@ -70,7 +70,7 @@ export const marksheet = (data) => {
       result: record.result,
       academicYear: record.academicYear,
       issuerName: record.issuerName,
-      issuanceDate: record.issuanceDate,
+      issuanceDate: new Date().toISOString(),
       certificateNo:
         record.academicYear.split('-')[1]?.trim(' ') +
         '/' +
