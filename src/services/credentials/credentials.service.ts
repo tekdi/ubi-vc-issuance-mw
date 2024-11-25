@@ -203,7 +203,7 @@ export class CredentialsService {
       );
       return response.data;
     } catch (error) {
-      console.error(error);
+      console.error(error.response.data);
       throw new HttpException(
         'Failed to issue credential',
         error.response?.status || 500,

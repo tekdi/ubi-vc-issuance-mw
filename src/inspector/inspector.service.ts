@@ -353,8 +353,11 @@ export class InspectorService {
     });
   }
 
-  async searchResult(certificateNo: any) {
-    const resultsData = await this.registryService.searchResult(certificateNo);
+  async searchResult(certificateNo: any, doctype: any) {
+    const resultsData = await this.registryService.searchResult(
+      certificateNo,
+      doctype,
+    );
 
     console.log('resultsData', resultsData);
 

@@ -85,12 +85,19 @@ export class InspectorController {
   @Post('preview')
   async preview(
     //@Param('id') id: string,
+    @Request() request,
     @Res() res: Response,
     //@Headers('type') type: string,
     @Headers('Accept') format: string = 'image/png',
     @Headers('certificateNo') certificateNo: string,
   ) {
-    const data = await this.inspectorService.searchResult(certificateNo);
+    console.log('0000000000000000000000', request);
+    const doctype = request.headers['doctype'];
+
+    const data = await this.inspectorService.searchResult(
+      certificateNo,
+      doctype,
+    );
     const type = data.schoolType;
 
     console.log('data', data);
@@ -139,12 +146,18 @@ export class InspectorController {
   @Get('credentials1')
   async credentials1(
     //@Param('id') id: string,
+    @Request() request,
     @Headers('Accept') format: string = 'image/png',
     //@Headers('templateId') templateId: string,
     @Res() res: Response,
     @Headers('certificateNo') certificateNo: string,
   ) {
-    const data = await this.inspectorService.searchResult(certificateNo);
+    const doctype = request.headers['doctype'];
+
+    const data = await this.inspectorService.searchResult(
+      certificateNo,
+      doctype,
+    );
 
     console.log('data', data);
     const id = data.certificateId;
@@ -219,12 +232,19 @@ export class InspectorController {
   @Get('credentials')
   async credentials(
     //@Param('id') id: string,
+    @Request() request,
+
     @Headers('Accept') format: string = 'image/png',
     //@Headers('templateId') templateId: string,
     @Res() res: Response,
     @Headers('certificateNo') certificateNo: string,
   ) {
-    const data = await this.inspectorService.searchResult(certificateNo);
+    const doctype = request.headers['doctype'];
+
+    const data = await this.inspectorService.searchResult(
+      certificateNo,
+      doctype,
+    );
     console.log('-------------------------------------------', data);
 
     const id = data?.certificateId ? data.certificateId : '';
@@ -453,6 +473,7 @@ export class InspectorController {
 
       // Extract required fields
       const extractedData = data.map((item: any) => ({
+        studentUniqueId: item.studentId || '',
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',

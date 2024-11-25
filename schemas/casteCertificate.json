@@ -7,12 +7,12 @@
     }
   },
   "required": ["casteCertificate"],
-  "title": "Caste Certificate",
+  "title": "CasteCertificate",
   "definitions": {
     "casteCertificate": {
       "$id": "#/properties/casteCertificate",
       "type": "object",
-      "title": "Caste Certificate Schema",
+      "title": "CasteCertificate Schema",
       "required": [
         "aadharNumber",
         "studentId",

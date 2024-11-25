@@ -152,8 +152,8 @@ export class RegistryService {
     }
   }
 
-  async searchResult(certificateNo: string): Promise<any> {
-    const url = this.baseUrl + '/registry/api/v1/marksheet/search';
+  async searchResult(certificateNo: string, doctype: string): Promise<any> {
+    const url = this.baseUrl + `/registry/api/v1/${doctype}/search`;
     const headers = {
       'Content-Type': 'application/json',
       Cookie: 'JSESSIONID=DD3A1308B7B64B9C47B7CEEEECAD4A58',
