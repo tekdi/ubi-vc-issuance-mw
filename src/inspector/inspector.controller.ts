@@ -98,7 +98,7 @@ export class InspectorController {
       certificateNo,
       doctype,
     );
-    const type = data.schoolType;
+    // const type = data.schoolType;
 
     console.log('data', data);
 
