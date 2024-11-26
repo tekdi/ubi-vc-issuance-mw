@@ -39,4 +39,16 @@ export const CredsConfig = {
     credentialSubjectType: 'EnrollmentCertificate',
     tags: ['dev', 'enrollment-certificate-credential'],
   },
+  sportsParticipationCertificate: {
+    schemaName: 'sportsParticipationCertificate',
+    credIssuerId: process.env.SPORT_CRED_SCHEMA_ID,
+    credsSchemaId: process.env.SPORT_ISSUER_ID,
+    transformer: 'sportsParticipationCertificate',
+    context:
+      'https://raw.githubusercontent.com/PSMRI/beneficiary-backend/refs/heads/main/schemas/SportsParticipationCertificate.json',
+    type: ['VerifiableCredential', 'sportsParticipationCertificate'],
+    expirationDate: '2025-02-08T11:56:27.259Z',
+    credentialSubjectType: 'sportsParticipationCertificate',
+    tags: ['dev', 'sportsParticipation-certificate-credential'],
+  },
 };

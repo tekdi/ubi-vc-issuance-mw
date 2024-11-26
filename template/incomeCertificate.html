@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caste Certificate</title>
+    <title>Income Certificate</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,7 +92,7 @@
 <body>
     <div class="certificate">
         <div class="header">
-            <h1>Caste Certificate</h1>
+            <h1>Income Certificate</h1>
         </div>
 
         <div class="details">
@@ -101,39 +101,23 @@
             <table>
                 <tr>
                     <th>Student Unique ID </th>
-                    <td>{{studentUniqueId}}</td>
+                    <td>{{StudentuniqueID}}</td>
                 </tr>
                 <tr>
-                    <th>Family Leader Bhamashah </th>
-                    <td>{{familyLeaderBhamashahNumber}}</td>
+                    <th>Father's Name </th>
+                    <td>{{FatherName}}</td>
                 </tr>
                 <tr>
-                    <th>Relation with Applicant </th>
-                    <td>{{RelationwithApplicant}}</td>
+                    <th>Mother's Name </th>
+                    <td>{{MotherName}}</td>
                 </tr>
                 <tr>
-                    <th>First Name </th>
-                    <td>{{firstName}}</td>
+                    <th>Husband's Name (if applicable) </th>
+                    <td>{{HusbandName}}</td>
                 </tr>
                 <tr>
-                    <th>Middle Name </th>
-                    <td>{{middleName}}</td>
-                </tr>
-                <tr>
-                    <th>Last Name </th>
-                    <td>{{lastName}}</td>
-                </tr>
-                <tr>
-                    <th>Caste Name </th>
-                    <td>{{CastName}}</td>
-                </tr>
-                <tr>
-                    <th>Caste Category </th>
-                    <td>{{castCategory}}</td>
-                </tr>
-                <tr>
-                    <th>Caste Category Number </th>
-                    <td>{{CastCategoryNumber}}</td>
+                    <th>Wife's Name (if applicable) </th>
+                    <td>{{WifeName}}</td>
                 </tr>
                 <tr>
                     <th>Address </th>
@@ -145,6 +129,34 @@
                         {{state}}
                         {{country}}
                     </td>
+                </tr>
+                <tr>
+                    <th>Caste Name (if applicable) </th>
+                    <td>{{CasteName}}</td>
+                </tr>
+                <tr>
+                    <th>Caste Category (if applicable) </th>
+                    <td>{{CasteCategory}}</td>
+                </tr>
+                <tr>
+                    <th>Total Annual Family Income </th>
+                    <td>{{TotalAnnualFamilyIncome}}</td>
+                </tr>
+                <tr>
+                    <th>Income from Agriculture </th>
+                    <td>{{IncomefromAgriculture}}</td>
+                </tr>
+                <tr>
+                    <th>Income from Salary </th>
+                    <td>{{IncomefromSalary}}</td>
+                </tr>
+                <tr>
+                    <th>Income from Trade/Business </th>
+                    <td>{{IncomefromTradeBusiness}}</td>
+                </tr>
+                <tr>
+                    <th>Income from Other Sources </th>
+                    <td>{{IncomefromOtherSources}}</td>
                 </tr>
             </table>
 
@@ -189,12 +201,16 @@
             <h2>Certificate Validity</h2>
             <table>
                 <tr>
-                    <th>Date of Issuance </th>
-                    <td>{{dateofIssuance}}</td>
+                    <th>Issuance Date </th>
+                    <td>{{issuanceDate}}</td>
                 </tr>
                 <tr>
                     <th>Certificate Number </th>
-                    <td>{{certificateNumber}}</td>
+                    <td>{{CertificateNumber}}</td>
+                </tr>
+                <tr>
+                    <th>Valid Upto </th>
+                    <td>{{validUpto}}</td>
                 </tr>
             </table>
         </div>
@@ -208,7 +224,7 @@
                 <span>{{orgOfficerName}}</span>
                 <p>{{OrganizationOfficerRank}}, {{OrganizationName}}</p>
             </div>
-            <div class="date">Issuance Date: {{dateofIssuance}}</div>
+            <div class="date">Issuance Date: {{issuanceDate}}</div>
         </div>
     </div>
 </body>

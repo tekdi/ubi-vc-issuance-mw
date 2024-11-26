@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marksheet Certificate</title>
+    <title>JanAadhar Certificate</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,18 +92,20 @@
 <body>
     <div class="certificate">
         <div class="header">
-            <h1>Marksheet Certificate</h1>
-            <p>Academic Year: {{academicYear}}</p>
-            <h2>{{schoolName}}</h2>
+            <h1>JanAadhar</h1>
         </div>
 
         <div class="details">
-            <!-- Student Details -->
-            <h2>Student Details</h2>
+            <!-- Personal Details -->
+            <h2>Personal Details</h2>
             <table>
                 <tr>
                     <th>Student Unique ID </th>
-                    <td>{{studentUniqueId}}</td>
+                    <td>{{studentUniqueID}}</td>
+                </tr>
+                <tr>
+                    <th>Family Identification Number </th>
+                    <td>{{familyIdentificationNumber}}</td>
                 </tr>
                 <tr>
                     <th>First Name </th>
@@ -118,54 +120,62 @@
                     <td>{{lastName}}</td>
                 </tr>
                 <tr>
-                    <th>School Unique Code </th>
-                    <td>{{schooluniquecode}}</td>
+                    <th>Gender </th>
+                    <td>{{gender}}</td>
                 </tr>
                 <tr>
-                    <th>School Name </th>
-                    <td>{{schoolName}}</td>
+                    <th>Date of Birth </th>
+                    <td>{{DoB}}</td>
                 </tr>
                 <tr>
-                    <th>Class </th>
-                    <td>{{class}}</td>
-                </tr>
-            </table>
-
-            <!-- Marks Details -->
-            <h2>Marks Details</h2>
-            <table>
-                <tr>
-                    <th>Max Marks </th>
-                    <td>{{marksMax}}</td>
+                    <th>Personal ID Number </th>
+                    <td>{{personalIdentificationNumber}}</td>
                 </tr>
                 <tr>
-                    <th>Total Marks </th>
-                    <td>{{marksTotal}}</td>
+                    <th>Address </th>
+                    <td>
+                        {{addressLine1}}
+                        {{addressLine2}}
+                        {{VillageTownCity}}
+                        {{district}}
+                        {{pin}}
+                        {{state}}
+                        {{country}}
+                    </td>
                 </tr>
                 <tr>
-                    <th>Percentage </th>
-                    <td>{{percentage}}</td>
-                </tr>
-                <tr>
-                    <th>Result </th>
-                    <td>{{result}}</td>
+                    <th>Relation with Family Leader </th>
+                    <td>{{relationwithFamilyLeader}}</td>
                 </tr>
             </table>
 
-            <!-- Issuer Details -->
-            <h2>School Details</h2>
+            <!-- Issuing Authority -->
+            <h2>Issuing Authority</h2>
             <table>
                 <tr>
-                    <th>Issuer Name </th>
-                    <td>{{issuerName}}</td>
+                    <th>Organization Name </th>
+                    <td>{{orgName}}</td>
+                </tr>
+                <tr>
+                    <th>Organization Type </th>
+                    <td>{{orgType}}</td>
+                </tr>
+                <tr>
+                    <th>Organization ID Number </th>
+                    <td>{{idNumber}}</td>
                 </tr>
             </table>
         </div>
 
         <div class="footer">
             <p>
-                This is to certify that the above information is correct as per the official records of the school.
+                This is to certify that the above information is correct as per the
+                official records.
             </p>
+            <div class="signature">
+                <span>{{orgOfficerName}}</span>
+                <p>{{OrganizationOfficerRank}}, {{orgName}}</p>
+            </div>
             <div class="date">Issuance Date: {{issuanceDate}}</div>
         </div>
     </div>
