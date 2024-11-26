@@ -7,22 +7,21 @@
     }
   },
   "required": ["enrollmentCertificate"],
-  "title": "Enrollment Certificate",
+  "title": "EnrollmentCertificate",
   "definitions": {
     "enrollmentCertificate": {
       "$id": "#/properties/enrollmentCertificate",
       "type": "object",
-      "title": "Enrollment Certificate Schema",
+      "title": "EnrollmentCertificate Schema",
       "required": [
         "studentId",
-        "schoolId",
         "firstName",
-        "lastName",
-        "gradeLevel",
-        "schoolYear",
-        "studentStatus",
+        "academicYear",
+        "class",
         "schoolName",
-        "dayMonthYear"
+        "schoolUniqueCode",
+        "issuanceDate",
+        "certificateEnrollmentId"
       ],
       "uniqueIndexFields": ["studentId"],
       "properties": {
@@ -46,17 +45,25 @@
           "type": "string",
           "title": "Last Name"
         },
-        "gradeLevel": {
+        "academicYear": {
           "type": "string",
-          "title": "Grade Level"
+          "title": "Academic Year"
         },
-        "addressLine1": {
+        "class": {
           "type": "string",
-          "title": "Address Line 1"
+          "title": "Class"
         },
-        "addressLine2": {
+        "schoolUniqueCode": {
           "type": "string",
-          "title": "Address Line 2"
+          "title": "School Unique Code"
+        },
+        "schoolAddressLine1": {
+          "type": "string",
+          "title": "School Address Line 1"
+        },
+        "schoolAddressLine2": {
+          "type": "string",
+          "title": "School Address Line 2"
         },
         "landmark": {
           "type": "string",
@@ -82,10 +89,6 @@
           "type": "string",
           "title": "Country"
         },
-        "schoolYear": {
-          "type": "string",
-          "title": "School Year"
-        },
         "studentStatus": {
           "type": "string",
           "title": "Student Status"
@@ -94,34 +97,35 @@
           "type": "string",
           "title": "School Name"
         },
-        "schoolRegistrationNumber": {
+        "authorityName": {
           "type": "string",
-          "title": "School Registration Number"
-        },
-        "principalName": {
-          "type": "string",
-          "title": "Principal Name"
+          "title": "Authority Name"
         },
         "principalDesignation": {
           "type": "string",
           "title": "Principal Designation"
         },
-        "dayMonthYear": {
+        "validUpto": {
           "type": "string",
           "format": "date",
-          "title": "Day/Month/Year of Issuance"
+          "title": "Valid Upto"
         },
-        "learnerReferenceNumber": {
+        "issuanceDate": {
           "type": "string",
-          "title": "Learner Reference Number"
+          "format": "date",
+          "title": "Issuance Date"
         },
-        "certificateId": {
+        "certificateEnrollmentId": {
           "type": "string",
-          "title": "Certificate Id"
+          "title": "Certificate Enrollment ID"
         },
         "certificateNo": {
           "type": "string",
           "title": "Certificate No"
+        },
+        "certificateId": {
+          "type": "string",
+          "title": "Certificate Id"
         }
       }
     }

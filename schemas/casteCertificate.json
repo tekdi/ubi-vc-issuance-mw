@@ -14,29 +14,16 @@
       "type": "object",
       "title": "CasteCertificate Schema",
       "required": [
-        "aadharNumber",
         "studentId",
         "firstName",
-        "lastName",
         "castName",
-        "castCategoryNumber",
+        "casteCategory",
+        "orgName",
         "dateOfIssuance",
         "certificateNumber"
       ],
       "uniqueIndexFields": ["studentId"],
       "properties": {
-        "aadharNumber": {
-          "type": "string",
-          "title": "Aadhar Number"
-        },
-        "familyLeaderBhamashahNumber": {
-          "type": "string",
-          "title": "Family Leader Bhamashah Number"
-        },
-        "relationWithApplicant": {
-          "type": "string",
-          "title": "Relation with Applicant"
-        },
         "studentId": {
           "type": "string",
           "title": "Student Identifier"
@@ -45,6 +32,14 @@
           "type": "string",
           "title": "School Identifier"
         },
+        "familyLeaderBhamashahNumber": {
+          "type": "string",
+          "title": "Family Leader Bhamashah Number"
+        },
+        "relationWithApplicant": {
+          "type": "string",
+          "title": "Relation with Applicant"
+        },      
         "firstName": {
           "type": "string",
           "title": "First Name"
@@ -61,6 +56,10 @@
           "type": "string",
           "title": "Caste Name"
         },
+        "casteCategory": {
+          "type": "string",
+          "title": "Caste Category Number"
+        },
         "castCategoryNumber": {
           "type": "string",
           "title": "Caste Category Number"
@@ -68,22 +67,6 @@
         "addressLine1": {
           "type": "string",
           "title": "Address Line 1"
-        },
-        "addressLine2": {
-          "type": "string",
-          "title": "Address Line 2"
-        },
-        "house": {
-          "type": "string",
-          "title": "House"
-        },
-        "landmark": {
-          "type": "string",
-          "title": "Landmark"
-        },
-        "locality": {
-          "type": "string",
-          "title": "Locality"
         },
         "vtc": {
           "type": "string",
@@ -109,45 +92,13 @@
           "type": "string",
           "title": "Organization Name"
         },
-        "orgCode": {
-          "type": "string",
-          "title": "Organization Code"
-        },
         "orgType": {
           "type": "string",
           "title": "Organization Type"
         },
-        "orgOfficerName": {
-          "type": "string",
-          "title": "Officer Name"
-        },
         "orgOfficerRank": {
           "type": "string",
           "title": "Officer Rank"
-        },
-        "orgOfficerSign": {
-          "type": "string",
-          "title": "Officer Signature"
-        },
-        "orgAddressLine1": {
-          "type": "string",
-          "title": "Organization Address Line 1"
-        },
-        "orgAddressLine2": {
-          "type": "string",
-          "title": "Organization Address Line 2"
-        },
-        "orgLandmark": {
-          "type": "string",
-          "title": "Organization Landmark"
-        },
-        "orgLocality": {
-          "type": "string",
-          "title": "Organization Locality"
-        },
-        "orgVtc": {
-          "type": "string",
-          "title": "Organization Village/Town/City"
         },
         "orgDistrict": {
           "type": "string",
@@ -169,13 +120,17 @@
           "type": "string",
           "title": "Date of Issuance"
         },
-        "certificateId": {
+        "certificateNumber": {
           "type": "string",
-          "title": "Certificate Id"
+          "title": "Certificate Number"
         },
         "certificateNo": {
           "type": "string",
           "title": "Certificate No"
+        },
+        "certificateId": {
+          "type": "string",
+          "title": "Certificate Id"
         }
       }
     }

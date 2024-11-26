@@ -1,0 +1,171 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+      "incomeCertificate": {
+        "$ref": "#/definitions/incomeCertificate"
+      }
+    },
+    "required": ["incomeCertificate"],
+    "title": "IncomeCertificate",
+    "definitions": {
+      "incomeCertificate": {
+        "$id": "#/properties/incomeCertificate",
+        "type": "object",
+        "title": "IncomeCertificate Schema",
+        "required": [
+          "studentId",
+          "fatherName",
+          "addressLine1",
+          "district",
+          "state",
+          "country",
+          "totalAnnualFamilyIncome",
+          "orgName",
+          "issuanceDate",
+          "certificateNumber"
+        ],
+        "uniqueIndexFields": ["studentId"],
+        "properties": {
+          "studentId": {
+            "type": "string",
+            "title": "Student Identifier"
+          },
+          "schoolId": {
+            "type": "string",
+            "title": "School Identifier"
+          },
+          "fatherName": {
+            "type": "string",
+            "title": "Father's Name"
+          },
+          "motherName": {
+            "type": "string",
+            "title": "Mother's Name"
+          },
+          "husbandName": {
+            "type": "string",
+            "title": "Husband's Name"
+          },
+          "wifeName": {
+            "type": "string",
+            "title": "Wife's Name"
+          },
+          "addressLine1": {
+            "type": "string",
+            "title": "Address Line 1"
+          },
+          "vtc": {
+            "type": "string",
+            "title": "Village/Town/City"
+          },
+          "district": {
+            "type": "string",
+            "title": "District"
+          },
+          "pin": {
+            "type": "string",
+            "title": "PIN Code"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "country": {
+            "type": "string",
+            "title": "Country"
+          },
+          "casteName": {
+            "type": "string",
+            "title": "Caste Name"
+          },
+          "casteCategory": {
+            "type": "string",
+            "title": "Caste Category"
+          },
+          "totalAnnualFamilyIncome": {
+            "type": "string",
+            "title": "Total Annual Family Income"
+          },
+          "incomeFromAgriculture": {
+            "type": "string",
+            "title": "Income from Agriculture"
+          },
+          "incomeFromSalary": {
+            "type": "string",
+            "title": "Income from Salary"
+          },
+          "incomeFromTradeBusiness": {
+            "type": "string",
+            "title": "Income from Trade/Business"
+          },
+          "incomeFromOtherSources": {
+            "type": "string",
+            "title": "Income from Other Sources"
+          },
+          "orgName": {
+            "type": "string",
+            "title": "Organization Name"
+          },
+          "orgType": {
+            "type": "string",
+            "title": "Organization Type"
+          },
+          "orgOfficerRank": {
+            "type": "string",
+            "title": "Officer Rank"
+          },
+          "orgAddressLine1": {
+            "type": "string",
+            "title": "Organization Address Line 1"
+          },
+          "orgAddressLine2": {
+            "type": "string",
+            "title": "Organization Address Line 2"
+          },
+          "orgDistrict": {
+            "type": "string",
+            "title": "Organization District"
+          },
+          "orgPin": {
+            "type": "string",
+            "title": "Organization PIN Code"
+          },
+          "orgState": {
+            "type": "string",
+            "title": "Organization State"
+          },
+          "orgCountry": {
+            "type": "string",
+            "title": "Organization Country"
+          },
+          "issuanceDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Issuance Date"
+          },
+          "certificateNumber": {
+            "type": "string",
+            "title": "Certificate Number"
+          },
+          "validUpto": {
+            "type": "string",
+            "format": "date",
+            "title": "Valid Upto"
+          },
+          "certificateNo": {
+            "type": "string",
+            "title": "Certificate No"
+          },
+          "certificateId": {
+            "type": "string",
+            "title": "Certificate Id"
+          }
+        }
+      }
+    },
+    "_osConfig": {
+      "inviteRoles": ["anonymous"]
+    }
+  }
+  
