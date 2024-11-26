@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caste Certificate</title>
+    <title>Sports Participation Certificate</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,51 +92,40 @@
 <body>
     <div class="certificate">
         <div class="header">
-            <h1>Caste Certificate</h1>
+            <h1>Sports Participation Certificate</h1>
+            <p>Certificate Number: {{certificateNumber}}</p>
         </div>
 
         <div class="details">
-            <!-- Personal Details -->
-            <h2>Personal Details</h2>
+            <!-- Participant Details -->
+            <h2>Participant Details</h2>
             <table>
                 <tr>
-                    <th>Student Unique ID </th>
+                    <th>Student Unique ID</th>
                     <td>{{studentUniqueId}}</td>
                 </tr>
                 <tr>
-                    <th>Family Leader Bhamashah </th>
-                    <td>{{familyLeaderBhamashahNumber}}</td>
-                </tr>
-                <tr>
-                    <th>Relation with Applicant </th>
-                    <td>{{RelationwithApplicant}}</td>
-                </tr>
-                <tr>
-                    <th>First Name </th>
+                    <th>First Name</th>
                     <td>{{firstName}}</td>
                 </tr>
                 <tr>
-                    <th>Middle Name </th>
+                    <th>Middle Name</th>
                     <td>{{middleName}}</td>
                 </tr>
                 <tr>
-                    <th>Last Name </th>
+                    <th>Last Name</th>
                     <td>{{lastName}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Name </th>
-                    <td>{{CastName}}</td>
+                    <th>School Name</th>
+                    <td>{{schoolName}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Category </th>
-                    <td>{{castCategory}}</td>
+                    <th>Class</th>
+                    <td>{{class}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Category Number </th>
-                    <td>{{CastCategoryNumber}}</td>
-                </tr>
-                <tr>
-                    <th>Address </th>
+                    <th>Address</th>
                     <td>
                         {{addressLine1}}
                         {{VillageTownCity}}
@@ -146,69 +135,83 @@
                         {{country}}
                     </td>
                 </tr>
+                <tr>
+                    <th>Organizing Venue</th>
+                    <td>{{organizingVenue}}</td>
+                </tr>
+                <tr>
+                    <th>Event Name</th>
+                    <td>{{eventName}}</td>
+                </tr>
+                <tr>
+                    <th>Event Start Date</th>
+                    <td>{{eventStartDate}}</td>
+                </tr>
+                <tr>
+                    <th>Event End Date</th>
+                    <td>{{eventEndDate}}</td>
+                </tr>
+                <tr>
+                    <th>Type of Sport</th>
+                    <td>{{typeofSport}}</td>
+                </tr>
+                <tr>
+                    <th>Rank</th>
+                    <td>{{rank}}</td>
+                </tr>
             </table>
 
             <!-- Issuing Authority -->
             <h2>Issuing Authority</h2>
             <table>
                 <tr>
-                    <th>Organization Name </th>
+                    <th>Organization Name</th>
                     <td>{{OrganizationName}}</td>
                 </tr>
                 <tr>
-                    <th>Organization Type </th>
+                    <th>Organization Code</th>
+                    <td>{{orgCode}}</td>
+                </tr>
+                <tr>
+                    <th>Organization Type</th>
                     <td>{{OrganizationType}}</td>
                 </tr>
                 <tr>
-                    <th>Officer Name </th>
+                    <th>Officer Name</th>
                     <td>{{orgOfficerName}}</td>
                 </tr>
                 <tr>
-                    <th>Officer Rank </th>
+                    <th>Officer Rank</th>
                     <td>{{OrganizationOfficerRank}}</td>
                 </tr>
                 <tr>
-                    <th>District </th>
+                    <th>District</th>
                     <td>{{district}}</td>
                 </tr>
                 <tr>
-                    <th>PIN </th>
+                    <th>PIN</th>
                     <td>{{pin}}</td>
                 </tr>
                 <tr>
-                    <th>State </th>
+                    <th>State</th>
                     <td>{{state}}</td>
                 </tr>
                 <tr>
-                    <th>Country </th>
+                    <th>Country</th>
                     <td>{{country}}</td>
-                </tr>
-            </table>
-
-            <!-- Certificate Validity -->
-            <h2>Certificate Validity</h2>
-            <table>
-                <tr>
-                    <th>Date of Issuance </th>
-                    <td>{{dateofIssuance}}</td>
-                </tr>
-                <tr>
-                    <th>Certificate Number </th>
-                    <td>{{certificateNumber}}</td>
                 </tr>
             </table>
         </div>
 
         <div class="footer">
             <p>
-                This is to certify that the above information is correct as per the
-                official records.
+                This is to certify that the above-named participant has successfully participated in the specified
+                event.
             </p>
             <div class="signature">
                 <span>{{orgOfficerName}}</span>
                 <p>{{OrganizationOfficerRank}}, {{OrganizationName}}</p>
             </div>
-            <div class="date">Issuance Date: {{dateofIssuance}}</div>
         </div>
     </div>
 </body>

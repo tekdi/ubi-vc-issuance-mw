@@ -108,6 +108,7 @@ export const enrollmentCertificate = (data) => {
       dayMonthYear: record.dayMonthYear,
       learnerReferenceNumber: record.learnerReferenceNumber,
       validUpto: record.validUpto,
+      issuanceDate: new Date().toISOString(),
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
@@ -159,6 +160,7 @@ export const casteCertificate = (data) => {
       orgCountry: record.orgCountry,
       dateOfIssuance: record.dateOfIssuance,
       certificateNumber: record.certificateNo,
+      issuanceDate: new Date().toISOString(),
       certificateNo:
         record.certificateNo ||
         record.schoolId?.trim(' ') +
@@ -167,6 +169,139 @@ export const casteCertificate = (data) => {
           '/' +
           record.studentUniqueId?.trim(' '),
       status: 'pending',
+    };
+  });
+};
+export const sportsParticipationCertificate = (data) => {
+  return data.map((record) => {
+    return {
+      studentId: record.studentUniqueId,
+      schoolId: record.schoolId,
+      firstName: record.firstName,
+      middleName: record.middleName,
+      lastName: record.lastName,
+      schoolName: record.schoolName,
+      class: record.gradeLevel,
+      addressLine1: record.addressLine1,
+      vtc: record.locality,
+      district: record.district,
+      pin: record.pin,
+      state: record.state,
+      country: record.country,
+      organizingVenue: record.landmark,
+      eventName: record.eventName,
+      eventStartDate: record.eventStartDate,
+      eventEndDate: record.eventEndDate,
+      typeofSport: record.typeofSport,
+      rank: record.rank,
+      orgName: record.organizationName,
+      orgCode: record.organizationCode,
+      orgType: record.organizationType,
+      orgOfficerName: record.authorityName,
+      orgOfficerRank: record.designationPrincipal,
+      orgDistrict: record.organizationDistrict,
+      orgPin: record.organizationPin,
+      orgState: record.organizationState,
+      orgCountry: record.organizationCountry,
+      issuanceDate: new Date().toISOString(),
+
+      certificateNumber:
+        record.schoolId?.trim(' ') +
+        '/' +
+        record.pin.split('-')[1]?.trim(' ') +
+        '/' +
+        record.studentUniqueId?.trim(' '),
+      certificateNo:
+        record.schoolId?.trim(' ') +
+        '/' +
+        record.academicYear.split('-')[1]?.trim(' ') +
+        '/' +
+        record.studentUniqueId?.trim(' '),
+      certificateId: record.learnerReferenceNumber,
+    };
+  });
+};
+export const janAadharCertificate = (data) => {
+  return data.map((record) => {
+    return {
+      studentId: record.studentUniqueId,
+      schoolId: record.schoolId,
+      familyIdentificationNumber: record.familyId,
+      firstName: record.firstName,
+      middleName: record.middleName,
+      lastName: record.lastName,
+      gender: record.gender,
+      dob: record.dateOfBirth,
+      personalIdentificationNumber: record.personalId,
+      familyBankAccountNumber: record.familyBankAccount,
+      addressLine1: record.addressLine1,
+      addressLine2: record.addressLine2,
+      vtc: record.locality,
+      district: record.district,
+      pin: record.pin,
+      state: record.state,
+      country: record.country,
+      relationwithFamilyLeader: record.relationToLeader,
+      orgName: record.organizationName,
+      orgType: record.organizationType,
+      idNumber: record.identificationNumber,
+      issuanceDate: new Date().toISOString(),
+      certificateNo:
+        record.schoolId?.trim(' ') +
+        '/' +
+        record.academicYear.split('-')[1]?.trim(' ') +
+        '/' +
+        record.studentUniqueId?.trim(' '),
+      certificateId: record.learnerReferenceNumber,
+    };
+  });
+};
+export const incomeCertificate = (data) => {
+  return data.map((record) => {
+    return {
+      studentId: record.studentUniqueId,
+      schoolId: record.schoolId,
+      fatherName: record.fatherName,
+      motherName: record.motherName,
+      husbandName: record.husbandName,
+      wifeName: record.wifeName,
+      addressLine1: record.addressLine1,
+      vtc: record.locality,
+      district: record.district,
+      pin: record.pin,
+      state: record.state,
+      country: record.country,
+      casteName: record.casteName,
+      casteCategory: record.casteCategory,
+      totalAnnualFamilyIncome: record.annualIncome,
+      incomeFromAgriculture: record.agricultureIncome,
+      incomeFromSalary: record.salaryIncome,
+      incomeFromTradeBusiness: record.businessIncome,
+      incomeFromOtherSources: record.otherIncome,
+      orgName: record.organizationName,
+      orgType: record.organizationType,
+      orgOfficerRank: record.designationPrincipal,
+      orgAddressLine1: record.organizationAddress1,
+      orgAddressLine2: record.organizationAddress2,
+      orgDistrict: record.organizationDistrict,
+      orgPin: record.organizationPin,
+      orgState: record.organizationState,
+      orgCountry: record.organizationCountry,
+      issuanceDate: new Date().toISOString(),
+      certificateNumber:
+        record.schoolId?.trim(' ') +
+        '/' +
+        record.academicYear.split('-')[1]?.trim(' ') +
+        '/' +
+        record.studentUniqueId?.trim(' '),
+      validUpto: record.validUpto,
+      certificateNo:
+        record.schoolId?.trim(' ') +
+        '/' +
+        record.academicYear.split('-')[1]?.trim(' ') +
+        '/' +
+        record.studentUniqueId?.trim(' '),
+      certificateId: record.learnerReferenceNumber,
     };
   });
 };

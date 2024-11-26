@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>School Enrollment Certificate</title>
+    <title>Marksheet Certificate</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -32,6 +32,11 @@
         margin: 10px 0 5px;
       }
 
+      .header p {
+        font-size: 16px;
+        color: #666;
+      }
+
       .details {
         margin-bottom: 20px;
       }
@@ -46,19 +51,10 @@
         text-align: left;
         padding: 8px;
         border: 1px solid #ddd;
-        vertical-align: top;
       }
 
       .details th {
         background-color: #f0f0f0;
-        text-align: left;
-        width: 30%;
-        white-space: nowrap;
-      }
-
-      .details td {
-        word-wrap: break-word;
-        word-break: break-word;
       }
 
       .footer {
@@ -91,85 +87,48 @@
   <body>
     <div class="certificate">
       <div class="header">
-        <h1>School Enrollment Certificate</h1>
+        <h1>Marksheet Certificate</h1>
+        <p>Academic Year: {{academicYear}}</p>
+        <h2>{{schoolName}}</h2>
       </div>
 
       <div class="details">
-        <!-- Student Details -->
-        <h2>Student Details</h2>
         <table>
           <tr>
-            <th>Student Unique ID</th>
-            <td>{{studentUniqueId}}</td>
+            <th>Student ID</th>
+            <td>{{studentId}}</td>
           </tr>
           <tr>
-            <th>First Name</th>
-            <td>{{firstName}}</td>
+            <th>Name</th>
+            <td>{{firstName}} {{middleName}} {{lastName}}</td>
           </tr>
           <tr>
-            <th>Middle Name</th>
-            <td>{{middleName}}</td>
+            <th>Class</th>
+            <td>{{class}}</td>
           </tr>
           <tr>
-            <th>Last Name</th>
-            <td>{{lastName}}</td>
+            <th>Exam Date</th>
+            <td>{{examDate}}</td>
           </tr>
           <tr>
-            <th>Academic Year</th>
-            <td>{{schoolYear}}</td>
+            <th>CGPA</th>
+            <td>{{cgpa}} / {{cgpaMax}}</td>
           </tr>
           <tr>
-            <th>Class/Division</th>
-            <td>{{gradeLevel}}</td>
+            <th>Marks Obtained</th>
+            <td>{{marksTotal}} / {{marksMax}}</td>
           </tr>
           <tr>
-            <th>School Unique Code</th>
-            <td>{{schoolId}}</td>
+            <th>Percentage</th>
+            <td>{{percentage}}%</td>
           </tr>
           <tr>
-            <th>School Address</th>
-            <td>
-              {{addressLine1}}{{landmark}} {{locality}} {{district}} {{pin}}
-              {{state}} {{country}}
-            </td>
+            <th>Grade</th>
+            <td>{{grade}}</td>
           </tr>
           <tr>
-            <th>Student Status</th>
-            <td>{{studentStatus}}</td>
-          </tr>
-        </table>
-
-        <!-- Issuing Authority -->
-        <h2>Issuing Authority</h2>
-        <table>
-          <tr>
-            <th>School Name</th>
-            <td>{{schoolName}}</td>
-          </tr>
-          <tr>
-            <th>Authority Name</th>
-            <td>{{principalName}}</td>
-          </tr>
-          <tr>
-            <th>Designation</th>
-            <td>{{principalDesignation}}</td>
-          </tr>
-        </table>
-
-        <!-- Certificate Details -->
-        <h2>Certificate Details</h2>
-        <table>
-          <tr>
-            <th>Certificate ID</th>
-            <td>{{certificateNo}}</td>
-          </tr>
-          <tr>
-            <th>Issuance Date</th>
-            <td>{{issuanceDate}}</td>
-          </tr>
-          <tr>
-            <th>Valid Upto</th>
-            <td>{{validUpto}}</td>
+            <th>Result</th>
+            <td>{{result}}</td>
           </tr>
         </table>
       </div>
@@ -177,13 +136,18 @@
       <div class="footer">
         <p>
           This is to certify that the above information is correct as per the
-          official records of the school.
+          official records.
         </p>
         <div class="signature">
-          <span>{{principalName}}</span>
-          <p>{{principalDesignation}}, {{schoolName}}</p>
+          <span>{{issuerName}}</span>
+          <p>Issuer</p>
         </div>
         <div class="date">Issuance Date: {{issuanceDate}}</div>
+        <!-- QR Code Placeholder -->
+        <!-- <div class="qr-code">
+          <p>Scan this QR code to verify:</p>
+          <div id="qrcode"></div>
+        </div> -->
       </div>
     </div>
   </body>

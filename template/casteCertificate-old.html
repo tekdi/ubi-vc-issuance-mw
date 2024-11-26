@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>School Enrollment Certificate</title>
+    <title>Caste Certificate</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -32,6 +32,11 @@
         margin: 10px 0 5px;
       }
 
+      .header p {
+        font-size: 16px;
+        color: #666;
+      }
+
       .details {
         margin-bottom: 20px;
       }
@@ -46,19 +51,13 @@
         text-align: left;
         padding: 8px;
         border: 1px solid #ddd;
-        vertical-align: top;
       }
 
       .details th {
         background-color: #f0f0f0;
-        text-align: left;
+        font-weight: bold;
         width: 30%;
-        white-space: nowrap;
-      }
-
-      .details td {
-        word-wrap: break-word;
-        word-break: break-word;
+        /* Ensure equal width for all th elements */
       }
 
       .footer {
@@ -91,99 +90,87 @@
   <body>
     <div class="certificate">
       <div class="header">
-        <h1>School Enrollment Certificate</h1>
+        <h1>Government of India</h1>
+        <p>Caste Certificate</p>
+        <p>Certificate Number: {{certificateNumber}}</p>
       </div>
 
       <div class="details">
-        <!-- Student Details -->
-        <h2>Student Details</h2>
         <table>
           <tr>
-            <th>Student Unique ID</th>
-            <td>{{studentUniqueId}}</td>
+            <th>Full Name</th>
+            <td>{{firstName}} {{middleName}} {{lastName}}</td>
           </tr>
           <tr>
-            <th>First Name</th>
-            <td>{{firstName}}</td>
+            <th>Aadhaar Number</th>
+            <td>{{aadharNumber}}</td>
           </tr>
           <tr>
-            <th>Middle Name</th>
-            <td>{{middleName}}</td>
+            <th>Family Leader Bhamashah Number</th>
+            <td>{{familyLeaderBhamashahNumber}}</td>
           </tr>
           <tr>
-            <th>Last Name</th>
-            <td>{{lastName}}</td>
+            <th>Relation</th>
+            <td>{{relationwithApplicant}}</td>
           </tr>
           <tr>
-            <th>Academic Year</th>
-            <td>{{schoolYear}}</td>
+            <th>Caste</th>
+            <td>{{castName}}</td>
           </tr>
           <tr>
-            <th>Class/Division</th>
-            <td>{{gradeLevel}}</td>
+            <th>Category</th>
+            <td>{{castCategoryNumber}}</td>
           </tr>
           <tr>
-            <th>School Unique Code</th>
-            <td>{{schoolId}}</td>
-          </tr>
-          <tr>
-            <th>School Address</th>
+            <th>Residential Address</th>
             <td>
-              {{addressLine1}}{{landmark}} {{locality}} {{district}} {{pin}}
-              {{state}} {{country}}
+              {{addressLine1}}, {{addressLine2}}, {{house}}, {{landmark}},
+              {{locality}}, {{vtc}}, {{district}}, {{state}}, {{country}},
+              {{pin}}
             </td>
           </tr>
-          <tr>
-            <th>Student Status</th>
-            <td>{{studentStatus}}</td>
-          </tr>
         </table>
+      </div>
 
-        <!-- Issuing Authority -->
-        <h2>Issuing Authority</h2>
+      <div class="details">
+        <h3>Issuing Organization Details</h3>
         <table>
           <tr>
-            <th>School Name</th>
-            <td>{{schoolName}}</td>
+            <th>Organization Name</th>
+            <td>{{orgName}}</td>
           </tr>
           <tr>
-            <th>Authority Name</th>
-            <td>{{principalName}}</td>
+            <th>Organization Code</th>
+            <td>{{orgCode}}</td>
           </tr>
           <tr>
-            <th>Designation</th>
-            <td>{{principalDesignation}}</td>
-          </tr>
-        </table>
-
-        <!-- Certificate Details -->
-        <h2>Certificate Details</h2>
-        <table>
-          <tr>
-            <th>Certificate ID</th>
-            <td>{{certificateNo}}</td>
+            <th>Organization Type</th>
+            <td>{{orgType}}</td>
           </tr>
           <tr>
-            <th>Issuance Date</th>
-            <td>{{issuanceDate}}</td>
+            <th>Officer Name</th>
+            <td>{{orgOfficerName}}</td>
           </tr>
           <tr>
-            <th>Valid Upto</th>
-            <td>{{validUpto}}</td>
+            <th>Officer Rank</th>
+            <td>{{orgOfficerRank}}</td>
+          </tr>
+          <tr>
+            <th>Office Address</th>
+            <td>
+              {{addressLine1}}, {{addressLine2}}, {{landmark}}, {{locality}},
+              {{vtc}}, {{district}}, {{state}}, {{country}}, {{pin}}
+            </td>
           </tr>
         </table>
       </div>
 
       <div class="footer">
-        <p>
-          This is to certify that the above information is correct as per the
-          official records of the school.
-        </p>
+        <p>Date of Issuance: {{dateofIssuance}}</p>
         <div class="signature">
-          <span>{{principalName}}</span>
-          <p>{{principalDesignation}}, {{schoolName}}</p>
+          <span>{{orgOfficerSign}}</span>
+          <p>Authorized Signatory</p>
         </div>
-        <div class="date">Issuance Date: {{issuanceDate}}</div>
       </div>
     </div>
   </body>
