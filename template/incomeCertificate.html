@@ -1,232 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Income Certificate</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
 
-        .certificate {
-            width: 80%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
+      .certificate {
+        width: 80%;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-        .header h1 {
-            font-size: 24px;
-            color: #333;
-            margin: 10px 0 5px;
-        }
+      .header h1 {
+        font-size: 24px;
+        color: #333;
+        margin: 10px 0 5px;
+      }
 
-        .details {
-            margin-bottom: 20px;
-        }
+      .details {
+        margin-bottom: 20px;
+      }
 
-        .details table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      .details table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-        .details th,
-        .details td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
+      .details th,
+      .details td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
 
-        .details th {
-            background-color: #f0f0f0;
-            text-align: left;
-            width: 30%;
-            white-space: nowrap;
-        }
+      .details th {
+        background-color: #f0f0f0;
+        text-align: left;
+        width: 30%;
+        white-space: nowrap;
+      }
 
-        .details td {
-            word-wrap: break-word;
-            word-break: break-word;
-        }
+      .details td {
+        word-wrap: break-word;
+        word-break: break-word;
+      }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-        }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+      }
 
-        .footer p {
-            font-size: 14px;
-            color: #555;
-        }
+      .footer p {
+        font-size: 14px;
+        color: #555;
+      }
 
-        .footer .signature {
-            margin-top: 20px;
-        }
+      .footer .signature {
+        margin-top: 20px;
+      }
 
-        .footer .signature span {
-            display: block;
-            font-weight: bold;
-            font-size: 16px;
-        }
+      .footer .signature span {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+      }
 
-        .footer .date {
-            font-size: 14px;
-            color: #777;
-        }
+      .footer .date {
+        font-size: 14px;
+        color: #777;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="certificate">
-        <div class="header">
-            <h1>Income Certificate</h1>
+      <div class="header">
+        <h1>Income Certificate</h1>
+        <p>Certificate Number: {{certificateNo}}</p>
+      </div>
+
+      <div class="details">
+        <!-- Personal Details -->
+        <h2>Personal Details</h2>
+        <table>
+          <tr>
+            <th>Student Identifier</th>
+            <td>{{studentId}}</td>
+          </tr>
+          <tr>
+            <th>School Identifier</th>
+            <td>{{schoolId}}</td>
+          </tr>
+          <tr>
+            <th>Father's Name</th>
+            <td>{{fatherName}}</td>
+          </tr>
+          <tr>
+            <th>Mother's Name</th>
+            <td>{{motherName}}</td>
+          </tr>
+          <tr>
+            <th>Husband's Name (if applicable)</th>
+            <td>{{husbandName}}</td>
+          </tr>
+          <tr>
+            <th>Wife's Name (if applicable)</th>
+            <td>{{wifeName}}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>
+              {{addressLine1}} {{vtc}} {{district}} {{pin}} {{state}}
+              {{country}}
+            </td>
+          </tr>
+          <tr>
+            <th>Caste Name (if applicable)</th>
+            <td>{{casteName}}</td>
+          </tr>
+          <tr>
+            <th>Caste Category (if applicable)</th>
+            <td>{{casteCategory}}</td>
+          </tr>
+          <tr>
+            <th>Total Annual Family Income</th>
+            <td>{{totalAnnualFamilyIncome}}</td>
+          </tr>
+          <tr>
+            <th>Income from Agriculture</th>
+            <td>{{incomeFromAgriculture}}</td>
+          </tr>
+          <tr>
+            <th>Income from Salary</th>
+            <td>{{incomeFromSalary}}</td>
+          </tr>
+          <tr>
+            <th>Income from Trade/Business</th>
+            <td>{{incomeFromTradeBusiness}}</td>
+          </tr>
+          <tr>
+            <th>Income from Other Sources</th>
+            <td>{{incomeFromOtherSources}}</td>
+          </tr>
+        </table>
+
+        <!-- Issuing Authority -->
+        <h2>Issuing Authority</h2>
+        <table>
+          <tr>
+            <th>Organization Name</th>
+            <td>{{orgName}}</td>
+          </tr>
+          <tr>
+            <th>Organization Type</th>
+            <td>{{orgType}}</td>
+          </tr>
+          <tr>
+            <th>Officer Rank</th>
+            <td>{{orgOfficerRank}}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>
+              {{orgAddressLine1}} {{orgAddressLine2}} {{orgDistrict}} {{orgPin}}
+              {{orgState}} {{orgCountry}}
+            </td>
+          </tr>
+        </table>
+
+        <!-- Certificate Validity -->
+        <h2>Certificate Validity</h2>
+        <table>
+          <tr>
+            <th>Valid Upto</th>
+            <td>{{validUpto}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="footer">
+        <p>
+          This is to certify that the above information is correct as per the
+          official records.
+        </p>
+        <div class="signature">
+          <p>{{orgOfficerRank}}, {{orgName}}</p>
         </div>
-
-        <div class="details">
-            <!-- Personal Details -->
-            <h2>Personal Details</h2>
-            <table>
-                <tr>
-                    <th>Student Unique ID </th>
-                    <td>{{StudentuniqueID}}</td>
-                </tr>
-                <tr>
-                    <th>Father's Name </th>
-                    <td>{{FatherName}}</td>
-                </tr>
-                <tr>
-                    <th>Mother's Name </th>
-                    <td>{{MotherName}}</td>
-                </tr>
-                <tr>
-                    <th>Husband's Name (if applicable) </th>
-                    <td>{{HusbandName}}</td>
-                </tr>
-                <tr>
-                    <th>Wife's Name (if applicable) </th>
-                    <td>{{WifeName}}</td>
-                </tr>
-                <tr>
-                    <th>Address </th>
-                    <td>
-                        {{addressLine1}}
-                        {{VillageTownCity}}
-                        {{district}}
-                        {{pin}}
-                        {{state}}
-                        {{country}}
-                    </td>
-                </tr>
-                <tr>
-                    <th>Caste Name (if applicable) </th>
-                    <td>{{CasteName}}</td>
-                </tr>
-                <tr>
-                    <th>Caste Category (if applicable) </th>
-                    <td>{{CasteCategory}}</td>
-                </tr>
-                <tr>
-                    <th>Total Annual Family Income </th>
-                    <td>{{TotalAnnualFamilyIncome}}</td>
-                </tr>
-                <tr>
-                    <th>Income from Agriculture </th>
-                    <td>{{IncomefromAgriculture}}</td>
-                </tr>
-                <tr>
-                    <th>Income from Salary </th>
-                    <td>{{IncomefromSalary}}</td>
-                </tr>
-                <tr>
-                    <th>Income from Trade/Business </th>
-                    <td>{{IncomefromTradeBusiness}}</td>
-                </tr>
-                <tr>
-                    <th>Income from Other Sources </th>
-                    <td>{{IncomefromOtherSources}}</td>
-                </tr>
-            </table>
-
-            <!-- Issuing Authority -->
-            <h2>Issuing Authority</h2>
-            <table>
-                <tr>
-                    <th>Organization Name </th>
-                    <td>{{OrganizationName}}</td>
-                </tr>
-                <tr>
-                    <th>Organization Type </th>
-                    <td>{{OrganizationType}}</td>
-                </tr>
-                <tr>
-                    <th>Officer Name </th>
-                    <td>{{orgOfficerName}}</td>
-                </tr>
-                <tr>
-                    <th>Officer Rank </th>
-                    <td>{{OrganizationOfficerRank}}</td>
-                </tr>
-                <tr>
-                    <th>District </th>
-                    <td>{{district}}</td>
-                </tr>
-                <tr>
-                    <th>PIN </th>
-                    <td>{{pin}}</td>
-                </tr>
-                <tr>
-                    <th>State </th>
-                    <td>{{state}}</td>
-                </tr>
-                <tr>
-                    <th>Country </th>
-                    <td>{{country}}</td>
-                </tr>
-            </table>
-
-            <!-- Certificate Validity -->
-            <h2>Certificate Validity</h2>
-            <table>
-                <tr>
-                    <th>Issuance Date </th>
-                    <td>{{issuanceDate}}</td>
-                </tr>
-                <tr>
-                    <th>Certificate Number </th>
-                    <td>{{CertificateNumber}}</td>
-                </tr>
-                <tr>
-                    <th>Valid Upto </th>
-                    <td>{{validUpto}}</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="footer">
-            <p>
-                This is to certify that the above information is correct as per the
-                official records.
-            </p>
-            <div class="signature">
-                <span>{{orgOfficerName}}</span>
-                <p>{{OrganizationOfficerRank}}, {{OrganizationName}}</p>
-            </div>
-            <div class="date">Issuance Date: {{issuanceDate}}</div>
-        </div>
+        <div class="date">Issuance Date: {{issuanceDate}}</div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

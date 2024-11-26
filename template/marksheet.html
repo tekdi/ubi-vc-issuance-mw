@@ -1,174 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marksheet Certificate</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
 
-        .certificate {
-            width: 80%;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
+      .certificate {
+        width: 80%;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-        .header h1 {
-            font-size: 24px;
-            color: #333;
-            margin: 10px 0 5px;
-        }
+      .header h1 {
+        font-size: 24px;
+        color: #333;
+        margin: 10px 0 5px;
+      }
 
-        .details {
-            margin-bottom: 20px;
-        }
+      .details {
+        margin-bottom: 20px;
+      }
 
-        .details table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      .details table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-        .details th,
-        .details td {
-            text-align: left;
-            padding: 8px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
+      .details th,
+      .details td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+        vertical-align: top;
+      }
 
-        .details th {
-            background-color: #f0f0f0;
-            text-align: left;
-            width: 30%;
-            white-space: nowrap;
-        }
+      .details th {
+        background-color: #f0f0f0;
+        text-align: left;
+        width: 30%;
+        white-space: nowrap;
+      }
 
-        .details td {
-            word-wrap: break-word;
-            word-break: break-word;
-        }
+      .details td {
+        word-wrap: break-word;
+        word-break: break-word;
+      }
 
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-        }
+      .footer {
+        text-align: center;
+        margin-top: 20px;
+      }
 
-        .footer p {
-            font-size: 14px;
-            color: #555;
-        }
+      .footer p {
+        font-size: 14px;
+        color: #555;
+      }
 
-        .footer .signature {
-            margin-top: 20px;
-        }
+      .footer .signature {
+        margin-top: 20px;
+      }
 
-        .footer .signature span {
-            display: block;
-            font-weight: bold;
-            font-size: 16px;
-        }
+      .footer .signature span {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+      }
 
-        .footer .date {
-            font-size: 14px;
-            color: #777;
-        }
+      .footer .date {
+        font-size: 14px;
+        color: #777;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="certificate">
-        <div class="header">
-            <h1>Marksheet Certificate</h1>
-            <p>Academic Year: {{academicYear}}</p>
-            <h2>{{schoolName}}</h2>
-        </div>
+      <div class="header">
+        <h1>Marksheet Certificate</h1>
+        <p>Certificate Number: {{certificateNo}}</p>
+      </div>
 
-        <div class="details">
-            <!-- Student Details -->
-            <h2>Student Details</h2>
-            <table>
-                <tr>
-                    <th>Student Unique ID </th>
-                    <td>{{studentUniqueId}}</td>
-                </tr>
-                <tr>
-                    <th>First Name </th>
-                    <td>{{firstName}}</td>
-                </tr>
-                <tr>
-                    <th>Middle Name </th>
-                    <td>{{middleName}}</td>
-                </tr>
-                <tr>
-                    <th>Last Name </th>
-                    <td>{{lastName}}</td>
-                </tr>
-                <tr>
-                    <th>School Unique Code </th>
-                    <td>{{schooluniquecode}}</td>
-                </tr>
-                <tr>
-                    <th>School Name </th>
-                    <td>{{schoolName}}</td>
-                </tr>
-                <tr>
-                    <th>Class </th>
-                    <td>{{class}}</td>
-                </tr>
-            </table>
+      <div class="details">
+        <!-- Student Details -->
+        <h2>Student Details</h2>
+        <table>
+          <tr>
+            <th>Student Identifier</th>
+            <td>{{studentId}}</td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{firstName}} {{middleName}} {{lastName}}</td>
+          </tr>
+          <tr>
+            <th>School Name</th>
+            <td>{{schoolName}}</td>
+          </tr>
+          <tr>
+            <th>Class</th>
+            <td>{{class}}</td>
+          </tr>
+        </table>
 
-            <!-- Marks Details -->
-            <h2>Marks Details</h2>
-            <table>
-                <tr>
-                    <th>Max Marks </th>
-                    <td>{{marksMax}}</td>
-                </tr>
-                <tr>
-                    <th>Total Marks </th>
-                    <td>{{marksTotal}}</td>
-                </tr>
-                <tr>
-                    <th>Percentage </th>
-                    <td>{{percentage}}</td>
-                </tr>
-                <tr>
-                    <th>Result </th>
-                    <td>{{result}}</td>
-                </tr>
-            </table>
+        <!-- Marks Details -->
+        <h2>Exam & Marks Details</h2>
+        <table>
+          <tr>
+            <th>Exam Date</th>
+            <td>{{examDate}}</td>
+          </tr>
+          <tr>
+            <th>Academic Year</th>
+            <td>{{academicYear}}</td>
+          </tr>
+          <tr>
+            <th>Cumulative Grade Point Average</th>
+            <td>{{cgpa}}</td>
+          </tr>
+          <tr>
+            <th>Maximum Cumulative Grade Point Average</th>
+            <td>{{cgpaMax}}</td>
+          </tr>
+          <tr>
+            <th>Grade</th>
+            <td>{{grade}}</td>
+          </tr>
+          <tr>
+            <th>Max Marks</th>
+            <td>{{marksMax}}</td>
+          </tr>
+          <tr>
+            <th>Total Marks</th>
+            <td>{{marksTotal}}</td>
+          </tr>
+          <tr>
+            <th>Percentage</th>
+            <td>{{percentage}}</td>
+          </tr>
+          <tr>
+            <th>Result</th>
+            <td>{{result}}</td>
+          </tr>
+        </table>
 
-            <!-- Issuer Details -->
-            <h2>School Details</h2>
-            <table>
-                <tr>
-                    <th>Issuer Name </th>
-                    <td>{{issuerName}}</td>
-                </tr>
-            </table>
-        </div>
+        <!-- Issuer Details -->
+        <h2>School Details</h2>
+        <table>
+          <tr>
+            <th>SchoolId</th>
+            <td>{{schoolId}}</td>
+          </tr>
+          <tr>
+            <th>School Name</th>
+            <td>{{schoolName}}</td>
+          </tr>
+          <tr>
+            <th>Issuer Name</th>
+            <td>{{issuerName}}</td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="footer">
-            <p>
-                This is to certify that the above information is correct as per the official records of the school.
-            </p>
-            <div class="date">Issuance Date: {{issuanceDate}}</div>
-        </div>
+      <div class="footer">
+        <p>
+          This is to certify that the above information is correct as per the
+          official records of the school.
+        </p>
+        <div class="date">Issuer Name: {{issuerName}}</div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

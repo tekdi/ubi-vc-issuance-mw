@@ -93,6 +93,8 @@
     <div class="certificate">
         <div class="header">
             <h1>JanAadhar</h1>
+            <p>Certificate ID: {{certificateId}}</p>
+            <p>Certificate Number: {{certificateNo}}</p>
         </div>
 
         <div class="details">
@@ -100,8 +102,12 @@
             <h2>Personal Details</h2>
             <table>
                 <tr>
-                    <th>Student Unique ID </th>
-                    <td>{{studentUniqueID}}</td>
+                    <th>Student Identifier </th>
+                    <td>{{studentId}}</td>
+                </tr>
+                <tr>
+                    <th>School Identifier </th>
+                    <td>{{schoolId}}</td>
                 </tr>
                 <tr>
                     <th>Family Identification Number </th>
@@ -125,7 +131,7 @@
                 </tr>
                 <tr>
                     <th>Date of Birth </th>
-                    <td>{{DoB}}</td>
+                    <td>{{dob}}</td>
                 </tr>
                 <tr>
                     <th>Personal ID Number </th>
@@ -136,7 +142,7 @@
                     <td>
                         {{addressLine1}}
                         {{addressLine2}}
-                        {{VillageTownCity}}
+                        {{vtc}}
                         {{district}}
                         {{pin}}
                         {{state}}
@@ -173,10 +179,8 @@
                 official records.
             </p>
             <div class="signature">
-                <span>{{orgOfficerName}}</span>
-                <p>{{OrganizationOfficerRank}}, {{orgName}}</p>
+                <p>{{orgName}}</p>
             </div>
-            <div class="date">Issuance Date: {{issuanceDate}}</div>
         </div>
     </div>
 </body>
