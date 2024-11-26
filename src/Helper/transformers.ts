@@ -103,14 +103,15 @@ export const enrollmentCertificate = (data) => {
       studentStatus: record.studentStatus,
       schoolName: record.schoolName,
       schoolRegistrationNumber: record.schoolRegistrationNumber,
-      principalName: record.principalName,
-      principalDesignation: record.principalDesignation,
+      principalName: record.authorityName,
+      principalDesignation: record.designationPrincipal,
       dayMonthYear: record.dayMonthYear,
       learnerReferenceNumber: record.learnerReferenceNumber,
+      validUpto: record.validUpto,
       certificateNo:
-        record.schoolId.split('-')[1]?.trim(' ') +
+        record.schoolId?.trim(' ') +
         '/' +
-        record.pin.replace(/\s+/g, '')?.trim(' ') +
+        record.academicYear.split('-')[1]?.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       status: 'pending',
@@ -160,7 +161,7 @@ export const casteCertificate = (data) => {
       certificateNumber: record.certificateNo,
       certificateNo:
         record.certificateNo ||
-        record.schoolId.split('-')[1]?.trim(' ') +
+        record.schoolId?.trim(' ') +
           '/' +
           record.pin.replace(/\s+/g, '')?.trim(' ') +
           '/' +

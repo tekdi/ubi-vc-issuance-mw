@@ -102,7 +102,7 @@ export class InspectorController {
 
     console.log('data', data);
 
-    const htmlContent = await this.inspectorService.renderHtml(data, type);
+    const htmlContent = await this.inspectorService.renderHtml(data, doctype);
 
     const fileType = format.split('/')[1] as 'png' | 'jpeg' | 'pdf' | 'html';
 

@@ -51,7 +51,9 @@ export class RegistryService {
     console.log('resultDataId', resultDataId);
     const credConfig =
       CredsConfig[
-        studentDetail.DocumentType || studentDetail.vctype.split('/')[1]
+        studentDetail.DocumentType ||
+          studentDetail.vctype.split('/')[0] ||
+          studentDetail.vctype.split('/')[1]
       ];
     console.log(credConfig);
 
