@@ -7,7 +7,7 @@
     }
   },
   "required": ["marksheet"],
-  "title": "marksheet",
+  "title": "Marksheet",
   "definitions": {
     "marksheet": {
       "$id": "#/properties/marksheet",
