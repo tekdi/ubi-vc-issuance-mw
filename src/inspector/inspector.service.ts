@@ -29,20 +29,26 @@ export class InspectorService {
     private readonly registryService: RegistryService,
   ) {}
 
-  private loadTemplate(type): string {
+  async loadTemplate(type) {
     try {
       // Read HTML file content
-      if (type == 'bcece') {
-        console.log('resTemplatePath 25', this.resTemplatePath);
-        return fs.readFileSync(this.resTemplatePath, 'utf-8');
-      } else if (type == 'middle basic') {
-        console.log('cerTemplatePath 21', this.cerTemplatePath);
-        return fs.readFileSync(this.cerTemplatePath, 'utf-8');
-      } else {
-        console.log('cerTemplatePath 28', this.cerTemplatePath);
-        return fs.readFileSync(this.cerTemplatePath, 'utf-8');
-        //return fs.readFileSync(this.resTemplatePath, 'utf-8');
-      }
+      // if (type == 'bcece') {
+      //   console.log('resTemplatePath 25', this.resTemplatePath);
+      //   return fs.readFileSync(this.resTemplatePath, 'utf-8');
+      // } else if (type == 'middle basic') {
+      //   console.log('cerTemplatePath 21', this.cerTemplatePath);
+      //   return fs.readFileSync(this.cerTemplatePath, 'utf-8');
+      // } else {
+      //   console.log('cerTemplatePath 28', this.cerTemplatePath);
+      //   return fs.readFileSync(this.cerTemplatePath, 'utf-8');
+      //   //return fs.readFileSync(this.resTemplatePath, 'utf-8');
+      // }
+      const cerTemplatePath: string = path.join(
+        process.cwd(),
+        'template',
+        `${type}.html`,
+      );
+      return fs.readFileSync(cerTemplatePath, 'utf-8');
     } catch (error) {
       throw new Error('Unable to load HTML template file.');
     }
@@ -375,10 +381,10 @@ export class InspectorService {
     }
   }
 
-  renderHtml(data: any, type: any): string {
-    const htmlTemplate = this.loadTemplate(type); // Load the HTML template from file
+  async renderHtml(data: any, type: any): Promise<string> {
+    const htmlTemplate = await this.loadTemplate(type); // Load the HTML template from file
     const template = Handlebars.compile(htmlTemplate); // Compile the template using Handlebars
-    console.log('-----------------------', data);
+    console.log('-----------------------', htmlTemplate, data);
 
     return template(data); // Inject the dynamic data
   }

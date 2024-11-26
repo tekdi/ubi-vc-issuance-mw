@@ -49,6 +49,8 @@ export class ExaminerController {
     // console.log('request', request.body.academicYear);
     // console.log('request', request.body.classType);
     const documentType = request.body.documentType.trim();
+    console.log('---------1', documentType);
+
     //this.logger.log('uploadCsv /upload API')
     return new Promise((resolve, reject) => {
       createReadStream(file.path)

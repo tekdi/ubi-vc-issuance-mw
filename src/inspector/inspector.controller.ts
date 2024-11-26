@@ -98,11 +98,11 @@ export class InspectorController {
       certificateNo,
       doctype,
     );
-    const type = data.schoolType;
+    // const type = data.schoolType;
 
     console.log('data', data);
 
-    const htmlContent = await this.inspectorService.renderHtml(data, type);
+    const htmlContent = await this.inspectorService.renderHtml(data, doctype);
 
     const fileType = format.split('/')[1] as 'png' | 'jpeg' | 'pdf' | 'html';
 

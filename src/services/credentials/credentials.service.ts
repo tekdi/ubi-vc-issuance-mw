@@ -160,7 +160,9 @@ export class CredentialsService {
     console.log('credentialSchemaId', this.credentialSchemaId);
     const credConfig =
       CredsConfig[
-        studentDetails.DocumentType || studentDetails.vctype.split('/')[1]
+        studentDetails.DocumentType ||
+          studentDetails.vctype.split('/')[0] ||
+          studentDetails.vctype.split('/')[1]
       ];
     console.log('------------', studentDetails);
 
