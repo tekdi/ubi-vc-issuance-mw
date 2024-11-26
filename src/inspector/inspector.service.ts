@@ -257,7 +257,7 @@ export class InspectorService {
       data.forEach((item) => {
         //promises.push(this.credentialsService.issueCredential(item))
         promises.push(
-          this.registryService.rejectResultsData(item.osid, authToken),
+          this.registryService.rejectResultsData(item.osid, authToken, data),
         );
       });
       return await Promise.allSettled(promises);
@@ -266,7 +266,7 @@ export class InspectorService {
 
   async decline(data, authToken) {
     try {
-      return this.registryService.rejectResultsData(data.osid, authToken);
+      return this.registryService.rejectResultsData(data.osid, authToken, data);
     } catch (error) {}
   }
 

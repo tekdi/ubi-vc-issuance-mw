@@ -91,9 +91,14 @@ export class RegistryService {
     }
   }
 
-  async rejectResultsData(resultDataId, authToken): Promise<any> {
+  async rejectResultsData(resultDataId, authToken, rejectData): Promise<any> {
     console.log('resultDataId', resultDataId);
-
+    const credConfig =
+      CredsConfig[
+        rejectData.DocumentType ||
+          rejectData.vctype.split('/')[0] ||
+          rejectData.vctype.split('/')[1]
+      ];
     const data = {
       status: 'rejected',
     };
@@ -110,7 +115,8 @@ export class RegistryService {
     try {
       const response = await lastValueFrom(
         this.httpService.put(
-          this.baseUrl + `/registry/api/v1/marksheet/${resultDataId}`,
+          this.baseUrl +
+            `/registry/api/v1/${credConfig.schemaName}/${resultDataId}`,
           JSON.stringify(data),
           config,
         ),
