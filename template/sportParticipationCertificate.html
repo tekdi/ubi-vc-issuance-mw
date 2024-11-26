@@ -93,7 +93,8 @@
     <div class="certificate">
         <div class="header">
             <h1>Sports Participation Certificate</h1>
-            <p>Certificate Number: {{certificateNumber}}</p>
+            <p>Certificate ID: {{certificateId}}</p>
+            <p>Certificate Number: {{certificateNo}}</p>
         </div>
 
         <div class="details">
@@ -101,9 +102,12 @@
             <h2>Participant Details</h2>
             <table>
                 <tr>
-                    <th>Student Unique ID</th>
-                    <td>{{studentUniqueId}}</td>
+                    <th>Student Identifier </th>
+                    <td>{{studentId}}</td>
                 </tr>
+                <tr>
+                    <th>School Identifier </th>
+                    <td>{{schoolId}}</td>
                 <tr>
                     <th>First Name</th>
                     <td>{{firstName}}</td>
@@ -128,7 +132,7 @@
                     <th>Address</th>
                     <td>
                         {{addressLine1}}
-                        {{VillageTownCity}}
+                        {{vtc}}
                         {{district}}
                         {{pin}}
                         {{state}}
@@ -153,7 +157,7 @@
                 </tr>
                 <tr>
                     <th>Type of Sport</th>
-                    <td>{{typeofSport}}</td>
+                    <td>{{typeOfSport}}</td>
                 </tr>
                 <tr>
                     <th>Rank</th>
@@ -166,7 +170,7 @@
             <table>
                 <tr>
                     <th>Organization Name</th>
-                    <td>{{OrganizationName}}</td>
+                    <td>{{orgName}}</td>
                 </tr>
                 <tr>
                     <th>Organization Code</th>
@@ -174,7 +178,7 @@
                 </tr>
                 <tr>
                     <th>Organization Type</th>
-                    <td>{{OrganizationType}}</td>
+                    <td>{{orgType}}</td>
                 </tr>
                 <tr>
                     <th>Officer Name</th>
@@ -182,23 +186,23 @@
                 </tr>
                 <tr>
                     <th>Officer Rank</th>
-                    <td>{{OrganizationOfficerRank}}</td>
+                    <td>{{orgOfficerRank}}</td>
                 </tr>
                 <tr>
                     <th>District</th>
-                    <td>{{district}}</td>
+                    <td>{{orgDistrict}}</td>
                 </tr>
                 <tr>
                     <th>PIN</th>
-                    <td>{{pin}}</td>
+                    <td>{{orgPin}}</td>
                 </tr>
                 <tr>
                     <th>State</th>
-                    <td>{{state}}</td>
+                    <td>{{orgState}}</td>
                 </tr>
                 <tr>
                     <th>Country</th>
-                    <td>{{country}}</td>
+                    <td>{{orgCountry}}</td>
                 </tr>
             </table>
         </div>
@@ -210,7 +214,7 @@
             </p>
             <div class="signature">
                 <span>{{orgOfficerName}}</span>
-                <p>{{OrganizationOfficerRank}}, {{OrganizationName}}</p>
+                <p>{{orgOfficerRank}}, {{orgName}}</p>
             </div>
         </div>
     </div>

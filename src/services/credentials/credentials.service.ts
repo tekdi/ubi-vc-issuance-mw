@@ -156,15 +156,14 @@ export class CredentialsService {
 
   async issueCredential2(studentDetails): Promise<any> {
     console.log('studentDetails', studentDetails);
-    console.log('issuerId', this.issuerId);
-    console.log('credentialSchemaId', this.credentialSchemaId);
+
     const credConfig =
       CredsConfig[
         studentDetails.DocumentType ||
           studentDetails.vctype.split('/')[0] ||
           studentDetails.vctype.split('/')[1]
       ];
-    console.log('------------', studentDetails);
+    console.log('------------', studentDetails, credConfig);
 
     const data = {
       credential: {
@@ -186,6 +185,7 @@ export class CredentialsService {
       credentialSchemaVersion: '1.0.0',
       tags: credConfig.tags,
     };
+    console.log('------------------data before issuance ', data);
 
     const config = {
       headers: {
@@ -205,7 +205,7 @@ export class CredentialsService {
       );
       return response.data;
     } catch (error) {
-      console.error(error.response.data);
+      console.error(error);
       throw new HttpException(
         'Failed to issue credential',
         error.response?.status || 500,

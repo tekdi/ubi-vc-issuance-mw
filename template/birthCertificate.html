@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caste Certificate</title>
+    <title>Birth Certificate</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             padding: 0;
             background-color: #f8f9fa;
         }
-
+    
         .certificate {
             width: 80%;
             margin: 30px auto;
@@ -21,27 +21,27 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
         }
-
+    
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
-
+    
         .header h1 {
             font-size: 24px;
             color: #333;
             margin: 10px 0 5px;
         }
-
+    
         .details {
             margin-bottom: 20px;
         }
-
+    
         .details table {
             width: 100%;
             border-collapse: collapse;
         }
-
+    
         .details th,
         .details td {
             text-align: left;
@@ -49,39 +49,39 @@
             border: 1px solid #ddd;
             vertical-align: top;
         }
-
+    
         .details th {
             background-color: #f0f0f0;
             text-align: left;
             width: 30%;
             white-space: nowrap;
         }
-
+    
         .details td {
             word-wrap: break-word;
             word-break: break-word;
         }
-
+    
         .footer {
             text-align: center;
             margin-top: 20px;
         }
-
+    
         .footer p {
             font-size: 14px;
             color: #555;
         }
-
+    
         .footer .signature {
             margin-top: 20px;
         }
-
+    
         .footer .signature span {
             display: block;
             font-weight: bold;
             font-size: 16px;
         }
-
+    
         .footer .date {
             font-size: 14px;
             color: #777;
@@ -92,13 +92,14 @@
 <body>
     <div class="certificate">
         <div class="header">
-            <h1>Caste Certificate</h1>
-            <p>Certificate Number: {{certificateNo}}</p>
-            <p>Certificate ID: {{certificateId}}</p>
+            <h1>Birth Certificate</h1>
+            <h2>{{orgName}}</h2>
+            <p>
+                Issued by: {{orgOfficerName}} ({{orgOfficerRank}})
+            </p>
         </div>
 
         <div class="details">
-            <!-- Personal Details -->
             <h2>Personal Details</h2>
             <table>
                 <tr>
@@ -108,43 +109,55 @@
                 <tr>
                     <th>School Identifier </th>
                     <td>{{schoolId}}</td>
-                </tr>
                 <tr>
-                    <th>Family Leader Bhamashah </th>
-                    <td>{{familyLeaderBhamashahNumber}}</td>
-                </tr>
                 <tr>
-                    <th>Relation with Applicant </th>
-                    <td>{{relationWithApplicant}}</td>
-                </tr>
-                <tr>
-                    <th>First Name </th>
+                    <th>First Name</th>
                     <td>{{firstName}}</td>
                 </tr>
                 <tr>
-                    <th>Middle Name </th>
+                    <th>Middle Name</th>
                     <td>{{middleName}}</td>
                 </tr>
                 <tr>
-                    <th>Last Name </th>
+                    <th>Last Name</th>
                     <td>{{lastName}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Name </th>
-                    <td>{{castName}}</td>
+                    <th>Gender</th>
+                    <td>{{gender}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Category </th>
-                    <td>{{castCategory}}</td>
+                    <th>Date of Birth</th>
+                    <td>{{dateOfBirth}}</td>
                 </tr>
                 <tr>
-                    <th>Caste Category Number </th>
-                    <td>{{castCategoryNumber}}</td>
+                    <th>Place of Birth</th>
+                    <td>{{placeOfBirth}}</td>
                 </tr>
                 <tr>
-                    <th>Address </th>
+                    <th>Mother's Name</th>
+                    <td>{{nameOfMother}}</td>
+                </tr>
+                <tr>
+                    <th>Mother's Aadhar</th>
+                    <td>{{aadharNumberOfMother}}</td>
+                </tr>
+                <tr>
+                    <th>Father's Name</th>
+                    <td>{{nameOfFather}}</td>
+                </tr>
+                <tr>
+                    <th>Father's Aadhar</th>
+                    <td>{{aadharNumberOfFather}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
                     <td>
                         {{addressLine1}}
+                        {{addressLine2}}
+                        {{house}}
+                        {{landmark}}
+                        {{locality}}
                         {{vtc}}
                         {{district}}
                         {{pin}}
@@ -152,38 +165,79 @@
                         {{country}}
                     </td>
                 </tr>
+                <tr>
+                    <th>Block</th>
+                    <td>{{nameOfBlock}}</td>
+                </tr>
+                <tr>
+                    <th>Registration Number</th>
+                    <td>{{registrationNumber}}</td>
+                </tr>
+                <tr>
+                    <th>Registration Date</th>
+                    <td>{{dateofRegistration}}</td>
+                </tr>
+                <tr>
+                    <th>Issue Date</th>
+                    <td>{{dateofIssue}}</td>
+                </tr>
+                <tr>
+                    <th>Remarks</th>
+                    <td>{{remarksIfAny}}</td>
+                </tr>
             </table>
 
-            <!-- Issuing Authority -->
+            <h2>Registration Details</h2>
+            <table>
+                <tr>
+                    <th>Tahsil</th>
+                    <td>{{nameOfTahsil}}</td>
+                </tr>
+                <tr>
+                    <th>Date of Registration</th>
+                    <td>{{dateOfRegistration}}</td>
+                </tr>
+                <tr>
+                    <th>Registration Number</th>
+                    <td>{{registrationNumber}}</td>
+                </tr>
+            </table>
+
             <h2>Issuing Authority</h2>
             <table>
                 <tr>
-                    <th>Organization Name </th>
+                    <th>Organization Name</th>
                     <td>{{orgName}}</td>
                 </tr>
                 <tr>
-                    <th>Organization Type </th>
+                    <th>Organization Code</th>
+                    <td>{{orgCode}}</td>
+                </tr>
+                <tr>
+                    <th>Organization Type</th>
                     <td>{{orgType}}</td>
                 </tr>
                 <tr>
-                    <th>Officer Rank </th>
+                    <th>Officer Name</th>
+                    <td>{{orgOfficerName}}</td>
+                </tr>
+                <tr>
+                    <th>Officer Rank</th>
                     <td>{{orgOfficerRank}}</td>
                 </tr>
                 <tr>
-                    <th>District </th>
-                    <td>{{orgDistrict}}</td>
-                </tr>
-                <tr>
-                    <th>PIN </th>
-                    <td>{{orgPin}}</td>
-                </tr>
-                <tr>
-                    <th>State </th>
-                    <td>{{orgState}}</td>
-                </tr>
-                <tr>
-                    <th>Country </th>
-                    <td>{{orgCountry}}</td>
+                    <th>Address</th>
+                    <td>
+                        {{orgAddressLine1}}
+                        {{orgAddressLine2}}
+                        {{orgLandmark}}
+                        {{orgLocality}}
+                        {{orgVtc}}
+                        {{orgDistrict}}
+                        {{orgPin}}
+                        {{orgState}}
+                        {{orgCountry}}
+                    </td>
                 </tr>
             </table>
         </div>
@@ -194,9 +248,10 @@
                 official records.
             </p>
             <div class="signature">
+                <span>{{orgOfficerName}}</span>
                 <p>{{orgOfficerRank}}, {{orgName}}</p>
             </div>
-            <div class="date">Issuance Date: {{dateOfIssuance}}</div>
+            <div class="date">Issuance Date: {{dateOfIssue}}</div>
         </div>
     </div>
 </body>

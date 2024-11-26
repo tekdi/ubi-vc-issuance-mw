@@ -99,7 +99,7 @@
         <h2>Student Details</h2>
         <table>
           <tr>
-            <th>Student Unique ID</th>
+            <th>Student Identifier</th>
             <td>{{studentId}}</td>
           </tr>
           <tr>
@@ -116,21 +116,25 @@
           </tr>
           <tr>
             <th>Academic Year</th>
-            <td>{{schoolYear}}</td>
+            <td>{{academicYear}}</td>
           </tr>
           <tr>
-            <th>Class/Division</th>
-            <td>{{gradeLevel}}</td>
+            <th>Class</th>
+            <td>{{class}}</td>
+          </tr>
+          <tr>
+            <th>School Identifier</th>
+            <td>{{schoolId}}</td>
           </tr>
           <tr>
             <th>School Unique Code</th>
-            <td>{{schoolId}}</td>
+            <td>{{schoolUniqueCode}}</td>
           </tr>
           <tr>
             <th>School Address</th>
             <td>
-              {{addressLine1}}{{landmark}} {{locality}} {{district}} {{pin}}
-              {{state}} {{country}}
+              {{schoolAddressLine1}} {{schoolAddressLine2}} {{landmark}}
+              {{locality}} {{district}} {{pin}} {{state}} {{country}}
             </td>
           </tr>
           <tr>
@@ -148,7 +152,7 @@
           </tr>
           <tr>
             <th>Authority Name</th>
-            <td>{{principalName}}</td>
+            <td>{{authorityName}}</td>
           </tr>
           <tr>
             <th>Designation</th>
@@ -160,8 +164,12 @@
         <h2>Certificate Details</h2>
         <table>
           <tr>
-            <th>Certificate ID</th>
+            <th>Certificate Number</th>
             <td>{{certificateNo}}</td>
+          </tr>
+          <tr>
+            <th>Certificate ID</th>
+            <td>{{certificateId}}</td>
           </tr>
           <tr>
             <th>Issuance Date</th>
@@ -180,7 +188,7 @@
           official records of the school.
         </p>
         <div class="signature">
-          <span>{{principalName}}</span>
+          <span>{{authorityName}}</span>
           <p>{{principalDesignation}}, {{schoolName}}</p>
         </div>
         <div class="date">Issuance Date: {{issuanceDate}}</div>

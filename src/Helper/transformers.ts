@@ -123,7 +123,6 @@ export const enrollmentCertificate = (data) => {
 export const casteCertificate = (data) => {
   return data.map((record) => {
     return {
-      aadharNumber: record.aadharNumber || 'NA',
       familyLeaderBhamashahNumber: record.familyLeaderBhamashahNumber,
       relationWithApplicant: record.relationWithApplicant,
       studentId: record.studentUniqueId,
@@ -158,7 +157,6 @@ export const casteCertificate = (data) => {
       orgPin: record.orgPin,
       orgState: record.orgState,
       orgCountry: record.orgCountry,
-      dateOfIssuance: record.dateOfIssuance,
       certificateNumber: record.certificateNo,
       issuanceDate: new Date().toISOString(),
       certificateNo:
@@ -217,7 +215,7 @@ export const sportsParticipationCertificate = (data) => {
         record.academicYear.split('-')[1]?.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
-      certificateId: record.learnerReferenceNumber,
+      status: 'pending',
     };
   });
 };
@@ -252,12 +250,12 @@ export const janAadharCertificate = (data) => {
         record.academicYear.split('-')[1]?.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
-      certificateId: record.learnerReferenceNumber,
+      status: 'pending',
     };
   });
 };
 export const incomeCertificate = (data) => {
-  return data.map((record) => {
+  return data?.map((record) => {
     return {
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
@@ -291,17 +289,17 @@ export const incomeCertificate = (data) => {
       certificateNumber:
         record.schoolId?.trim(' ') +
         '/' +
-        record.academicYear.split('-')[1]?.trim(' ') +
+        record.pin.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       validUpto: record.validUpto,
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
-        record.academicYear.split('-')[1]?.trim(' ') +
+        record.pin.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
-      certificateId: record.learnerReferenceNumber,
+      status: 'pending',
     };
   });
 };

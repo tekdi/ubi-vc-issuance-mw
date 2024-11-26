@@ -5,23 +5,23 @@ config();
 export const CredsConfig = {
   marksheet: {
     schemaName: 'marksheet',
-    credIssuerId: process.env.MARKSHEET_CRED_SCHEMA_ID,
-    credsSchemaId: process.env.MARKSHEET_ISSUER_ID,
+    credIssuerId: process.env.MARKSHEET_ISSUER_ID,
+    credsSchemaId: process.env.MARKSHEET_CRED_SCHEMA_ID,
     transformer: 'marksheet',
     context:
-      'https://raw.githubusercontent.com/PSMRI/beneficiary-backend/refs/heads/main/schemas/credentials/TekdiIssuedMarksheetCredential.json#TekdiIssuedMarksheetCredential',
-    type: ['VerifiableCredential', 'TekdiIssuedMarksheetCredential'],
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/Marksheet.json',
+    type: ['VerifiableCredential', 'marksheet'],
     expirationDate: '2025-02-08T11:56:27.259Z',
-    credentialSubjectType: 'TekdiIssuedMarksheetCredential',
+    credentialSubjectType: 'marksheet',
     tags: ['dev', 'marksheet-certificate-credential'],
   },
   casteCertificate: {
     schemaName: 'casteCertificate',
-    credIssuerId: process.env.CASTE_CRED_SCHEMA_ID,
-    credsSchemaId: process.env.CASTE_ISSUER_ID,
+    credIssuerId: process.env.CASTE_ISSUER_ID,
+    credsSchemaId: process.env.CASTE_CRED_SCHEMA_ID,
     transformer: 'casteCertificate',
     context:
-      'https://raw.githubusercontent.com/PSMRI/beneficiary-backend/refs/heads/main/schemas/credentials/CasteCertificate.json#CasteCertificate',
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/CasteCertificate.json',
     type: ['VerifiableCredential', 'CasteCertificate'],
     expirationDate: '2025-02-08T11:56:27.259Z',
     credentialSubjectType: 'CasteCertificate',
@@ -29,11 +29,11 @@ export const CredsConfig = {
   },
   enrollmentCertificate: {
     schemaName: 'enrollmentCertificate',
-    credIssuerId: process.env.ENROLLMENT_CRED_SCHEMA_ID,
-    credsSchemaId: process.env.ENROLLMENT_ISSUER_ID,
+    credIssuerId: process.env.ENROLLMENT_ISSUER_ID,
+    credsSchemaId: process.env.ENROLLMENT_CRED_SCHEMA_ID,
     transformer: 'enrollmentCertificate',
     context:
-      'https://raw.githubusercontent.com/PSMRI/beneficiary-backend/refs/heads/main/schemas/credentials/EnrollmentCertificate.json#EnrollmentCertificate',
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/EnrollmentCertificate.json',
     type: ['VerifiableCredential', 'EnrollmentCertificate'],
     expirationDate: '2025-02-08T11:56:27.259Z',
     credentialSubjectType: 'EnrollmentCertificate',
@@ -45,10 +45,34 @@ export const CredsConfig = {
     credsSchemaId: process.env.SPORT_ISSUER_ID,
     transformer: 'sportsParticipationCertificate',
     context:
-      'https://raw.githubusercontent.com/PSMRI/beneficiary-backend/refs/heads/main/schemas/SportsParticipationCertificate.json',
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/SportsParticipationCertificate.json',
     type: ['VerifiableCredential', 'sportsParticipationCertificate'],
     expirationDate: '2025-02-08T11:56:27.259Z',
     credentialSubjectType: 'sportsParticipationCertificate',
     tags: ['dev', 'sportsParticipation-certificate-credential'],
+  },
+  incomeCertificate: {
+    schemaName: 'incomeCertificate',
+    credIssuerId: process.env.INCOME_ISSUER_ID,
+    credsSchemaId: process.env.INCOME_CRED_SCHEMA_ID,
+    transformer: 'incomeCertificate',
+    context:
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/IncomeCertificate.json',
+    type: ['VerifiableCredential', 'incomeCertificate'],
+    expirationDate: '2025-02-08T11:56:27.259Z',
+    credentialSubjectType: 'incomeCertificate',
+    tags: ['dev', 'income-certificate-credential'],
+  },
+  janAadharCertificate: {
+    schemaName: 'janAadharCertificate',
+    credIssuerId: process.env.JAN_AADHAAR_ISSUER_ID,
+    credsSchemaId: process.env.JAN_AADHAAR_CRED_SCHEMA_ID,
+    transformer: 'janAadharCertificate',
+    context:
+      'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/JanAadharCertificate.json',
+    type: ['VerifiableCredential', 'janAadharCertificate'],
+    expirationDate: '2025-02-08T11:56:27.259Z',
+    credentialSubjectType: 'janAadharCertificate',
+    tags: ['dev', 'jan-adhaar-certificate-credential'],
   },
 };
