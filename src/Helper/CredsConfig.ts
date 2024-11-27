@@ -70,9 +70,9 @@ export const CredsConfig = {
     transformer: 'janAadharCertificate',
     context:
       'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/JanAadharCertificate.json',
-    type: ['VerifiableCredential', 'janAadharCertificate'],
+    type: ['VerifiableCredential', 'JanAadharCertificate'],
     expirationDate: '2025-02-08T11:56:27.259Z',
-    credentialSubjectType: 'janAadharCertificate',
+    credentialSubjectType: 'JanAadharCertificate',
     tags: ['dev', 'jan-adhaar-certificate-credential'],
   },
 };
