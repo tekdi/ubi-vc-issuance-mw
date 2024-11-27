@@ -206,13 +206,13 @@ export const sportsParticipationCertificate = (data) => {
       certificateNumber:
         record.schoolId?.trim(' ') +
         '/' +
-        record.pin.split('-')[1]?.trim(' ') +
+        record.pin.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
-        record.academicYear.split('-')[1]?.trim(' ') +
+        record.pin.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       status: 'pending',
@@ -247,7 +247,7 @@ export const janAadharCertificate = (data) => {
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
-        record.academicYear.split('-')[1]?.trim(' ') +
+        record.pin?.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       status: 'pending',
