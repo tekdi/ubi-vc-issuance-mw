@@ -9,9 +9,10 @@ async function bootstrap() {
   const globalPrefix = process.env.API_PREFIX || 'api';
   app.setGlobalPrefix(globalPrefix);
 
+  const PORT = process.env.PORT || 3000;
   console.log(
-    `Application is running on: http://localhost:${process.env.PORT}/${globalPrefix}`,
+    `Application is running on: http://localhost:${PORT}/${globalPrefix}`,
   );
-  await app.listen(process.env.PORT);
+  await app.listen(PORT);
 }
 bootstrap();

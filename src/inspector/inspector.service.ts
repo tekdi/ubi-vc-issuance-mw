@@ -384,9 +384,48 @@ export class InspectorService {
   async renderHtml(data: any, type: any): Promise<string> {
     const htmlTemplate = await this.loadTemplate(type); // Load the HTML template from file
     const template = Handlebars.compile(htmlTemplate); // Compile the template using Handlebars
-    console.log('-----------------------', htmlTemplate, data);
+    // console.log('-----------------------', htmlTemplate, data);
+
+    data = this.mapCertificateData(data);
 
     return template(data); // Inject the dynamic data
+  }
+
+  mapCertificateData(data: any) {
+    const mappedData: { [key: string]: any } = {};
+    const addressFields = [
+      'addressLine1',
+      'addressLine2',
+      'house',
+      'landmark',
+      'locality',
+      'vtc',
+      'district',
+      'pin',
+      'state',
+      'country',
+      'orgAddressLine1',
+      'orgAddressLine2',
+      'orgLandmark',
+      'orgLocality',
+      'orgVtc',
+      'orgDistrict',
+      'orgPin',
+      'orgState',
+      'orgCountry',
+      'schoolAddressLine1',
+      'schoolAddressLine2',
+    ];
+
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        if (addressFields.includes(key)) {
+          mappedData[key] = data[key] !== null ? data[key] + ', ' : '';
+        } else mappedData[key] = data[key] || '--';
+      }
+    }
+
+    return mappedData;
   }
 
   async generateQrCode(id: string): Promise<string> {
