@@ -125,6 +125,7 @@ export const casteCertificate = (data) => {
       familyLeaderBhamashahNumber: record.familyLeaderBhamashahNumber,
       relationWithApplicant: record.relationWithApplicant,
       studentId: record.studentUniqueId,
+      schoolName: record.schoolName,
       schoolId: record.schoolId,
       firstName: record.firstName,
       middleName: record.middleName,
@@ -223,6 +224,7 @@ export const janAadharCertificate = (data) => {
     return {
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
+      schoolName: record.schoolName,
       familyIdentificationNumber: record.familyId,
       firstName: record.firstName,
       middleName: record.middleName,
@@ -258,6 +260,10 @@ export const incomeCertificate = (data) => {
     return {
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
+      schoolName: record.schoolName,
+      firstName: record.firstName,
+      middleName: record.middleName,
+      lastName: record.lastName,
       fatherName: record.fatherName,
       motherName: record.motherName,
       husbandName: record.husbandName,
