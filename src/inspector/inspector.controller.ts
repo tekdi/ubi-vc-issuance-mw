@@ -473,7 +473,8 @@ export class InspectorController {
 
       // Extract required fields
       const extractedData = data.map((item: any) => ({
-        studentUniqueId: item.studentId || '',
+        StudentUniqueId: item.studentId || '',
+        schoolId: item.schoolId || '',
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',

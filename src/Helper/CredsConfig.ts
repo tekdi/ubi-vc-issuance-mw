@@ -41,8 +41,8 @@ export const CredsConfig = {
   },
   sportsParticipationCertificate: {
     schemaName: 'sportsParticipationCertificate',
-    credIssuerId: process.env.SPORT_CRED_SCHEMA_ID,
-    credsSchemaId: process.env.SPORT_ISSUER_ID,
+    credIssuerId: process.env.SPORT_ISSUER_ID,
+    credsSchemaId: process.env.SPORT_CRED_SCHEMA_ID,
     transformer: 'sportsParticipationCertificate',
     context:
       'https://raw.githubusercontent.com/tekdi/tekdi.github.io/refs/heads/main/static/files/vc-schemas/ubi/SportsParticipationCertificate.json',
