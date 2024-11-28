@@ -291,7 +291,7 @@ export const incomeCertificate = (data) => {
         record.pin.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
-      validUpto: record.validUpto,
+      validTo: record.validUpto,
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
