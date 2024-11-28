@@ -211,7 +211,7 @@ export const sportsParticipationCertificate = (data) => {
       certificateNo:
         record.schoolId?.trim(' ') +
         '/' +
-        record.pin.trim(' ') +
+        record.pin?.trim(' ') +
         '/' +
         record.studentUniqueId?.trim(' '),
       status: 'pending',
@@ -228,7 +228,7 @@ export const janAadharCertificate = (data) => {
       middleName: record.middleName,
       lastName: record.lastName,
       gender: record.gender,
-      dob: record.dateOfBirth,
+      dateOfBirth: record.dateOfBirth,
       personalIdentificationNumber: record.personalId,
       familyBankAccountNumber: record.familyBankAccount,
       addressLine1: record.addressLine1,
