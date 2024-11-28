@@ -105,9 +105,8 @@
           "type": "string",
           "title": "Principal Designation"
         },
-        "validUpto": {
+        "validTo": {
           "type": "string",
-          "format": "date",
           "title": "Valid Upto"
         },
         "issuanceDate": {
