@@ -60,6 +60,7 @@ export class RegistryService {
     const data = {
       certificateId: certificateId,
       status: 'issued',
+      issuanceDate: new Date().toISOString(),
     };
 
     const config = {

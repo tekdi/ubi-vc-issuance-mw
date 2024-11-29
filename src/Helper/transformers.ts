@@ -181,12 +181,12 @@ export const sportsParticipationCertificate = (data) => {
       schoolName: record.schoolName,
       class: record.gradeLevel || record.class || record.division,
       addressLine1: record.addressLine1,
-      vtc: record.locality,
+      vtc: record.vtc,
       district: record.district,
       pin: record.pin,
       state: record.state,
       country: record.country,
-      organizingVenue: record.landmark,
+      organizingVenue: record.organizingVenue,
       eventName: record.eventName,
       startDate: record.eventStartDate,
       endDate: record.eventEndDate,
@@ -203,17 +203,19 @@ export const sportsParticipationCertificate = (data) => {
       orgCountry: record.organizationCountry,
       issuanceDate: new Date().toISOString(),
       certificateNumber:
+        record.certificateNumber ||
         record.schoolId?.trim(' ') +
-        '/' +
-        record.pin.trim(' ') +
-        '/' +
-        record.studentUniqueId?.trim(' '),
+          '/' +
+          record.pin.trim(' ') +
+          '/' +
+          record.studentUniqueId?.trim(' '),
       certificateNo:
+        record.certificateNumber ||
         record.schoolId?.trim(' ') +
-        '/' +
-        record.pin?.trim(' ') +
-        '/' +
-        record.studentUniqueId?.trim(' '),
+          '/' +
+          record.pin?.trim(' ') +
+          '/' +
+          record.studentUniqueId?.trim(' '),
       status: 'pending',
     };
   });
