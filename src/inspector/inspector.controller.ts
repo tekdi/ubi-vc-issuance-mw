@@ -445,9 +445,10 @@ export class InspectorController {
     }
   }
 
-  @Get('downloadCSV/:documentType')
+  @Get('downloadCSV/:documentType/:schoolId')
   async downloadCSV(
     @Param('documentType') documentType: string,
+    @Param('schoolId') currentSchoolId: string,
     @Res() res: Response,
   ) {
     const url = `${this.baseUrl}/registry/api/v1/${documentType}/search`;
@@ -459,6 +460,9 @@ export class InspectorController {
         filters: {
           status: {
             eq: 'issued',
+          },
+          schoolId: {
+            eq: currentSchoolId,
           },
         },
       };
