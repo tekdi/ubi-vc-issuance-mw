@@ -475,6 +475,7 @@ export class InspectorController {
       const extractedData = data.map((item: any) => ({
         StudentUniqueId: item.studentId || '',
         schoolId: item.schoolId || '',
+        schoolName: item.schoolName || '',
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',
