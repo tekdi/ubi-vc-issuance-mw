@@ -1,34 +1,35 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema",
-	"type": "object",
-	"properties": { "Examiner": { "$ref": "#/definitions/Examiner" } },
-	"required": ["Examiner"],
-	"title": "Examiner",
-	"definitions": {
-		"Examiner": {
-			"$id": "#/properties/Examiner",
-			"type": "object",
-			"title": "Examinerschema",
-			"required": ["name", "email", "phoneNumber", "password"],
-			"uniqueIndexFields": ["email"],
-			"properties": {
-                "name": {"type": "string", "title": "Name"},
-                "email": { "type": "string", "title": "Email" },
-				"phoneNumber": { "type": "string", "title": "Phone Number" },
-				"status": { "type": "string", "title": "Status" },
-				"password": { "type": "string", "minLength": 8, "title": "Password" }
-			}
-		}
-	},
-	"_osConfig": {
-		"ownershipAttributes": [
-			{
-				"email": "/email",
-				"mobile": "/phoneNumber",
-				"userId": "/email",
-				"password": "/password"
-			}
-		],
-		"inviteRoles": ["anonymous"]
-	}
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "properties": { "Examiner": { "$ref": "#/definitions/Examiner" } },
+  "required": ["Examiner"],
+  "title": "Examiner",
+  "definitions": {
+    "Examiner": {
+      "$id": "#/properties/Examiner",
+      "type": "object",
+      "title": "Examinerschema",
+      "required": ["name", "email", "phoneNumber", "password"],
+      "uniqueIndexFields": ["email"],
+      "properties": {
+        "name": { "type": "string", "title": "Name" },
+        "email": { "type": "string", "title": "Email" },
+        "phoneNumber": { "type": "string", "title": "Phone Number" },
+        "status": { "type": "string", "title": "Status" },
+        "password": { "type": "string", "minLength": 8, "title": "Password" }
+      }
+    }
+  },
+  "_osConfig": {
+    "ownershipAttributes": [
+      {
+        "email": "/email",
+        "mobile": "/phoneNumber",
+        "userId": "/email",
+        "password": "/password"
+      }
+    ],
+    "inviteRoles": ["anonymous"],
+    "uniqueIndexFields": ["email"]
+  }
 }

@@ -17,8 +17,9 @@
         "school",
         "password"
       ],
-      "uniqueIndexFields": ["email", "nin"],
+
       "properties": {
+        "uniqueId": { "type": "string", "title": "Student unique Id" },
         "studentId": { "type": "string", "title": "Student Id" },
         "studentJssId": {
           "type": "string",
@@ -50,6 +51,7 @@
         "password": "/password"
       }
     ],
-    "inviteRoles": ["anonymous"]
+    "inviteRoles": ["anonymous"],
+    "uniqueIndexFields": ["uniqueId"]
   }
 }
