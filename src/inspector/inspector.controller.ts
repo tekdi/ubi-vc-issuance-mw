@@ -455,7 +455,7 @@ export class InspectorController {
     try {
       const payload = {
         offset: 0,
-        limit: 100,
+        limit: 10000,
         filters: {
           status: {
             eq: 'issued',
