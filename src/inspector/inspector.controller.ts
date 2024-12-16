@@ -472,6 +472,7 @@ export class InspectorController {
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',
+        IssuedDate: item.issuanceDate || '',
         documentType: documentType,
       }));
 
