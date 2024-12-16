@@ -472,7 +472,22 @@ export class InspectorController {
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',
-        IssuedDate: item.issuanceDate || '',
+        IssuedDate: item.issuanceDate
+          ? new Date(
+              new Date(item.issuanceDate).getTime() + 5.5 * 60 * 60 * 1000,
+            )
+              .toLocaleString('en-IN', {
+                weekday: 'short',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+              })
+              .replace(',', '')
+              .replace(/(\d{2})-(\d{2})-(\d{4})/, '$2-$1-$3')
+          : '',
         documentType: documentType,
       }));
 
