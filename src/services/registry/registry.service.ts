@@ -14,29 +14,77 @@ export class RegistryService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  async inviteResultsData(data, credConfig): Promise<any> {
+  async inviteResultsData(authToken, data, credConfig): Promise<any> {
     console.log('inviteData', data);
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    let getDataConfig = {
       maxBodyLength: Infinity,
+      headers: {
+        Authorization: `${authToken}`,
+      },
     };
 
+    const payload = {
+      filters: {
+        uniqueId: {
+          eq: data.uniqueId,
+        },
+      },
+    };
     try {
-      console.log('calling invite api');
-      const response = await lastValueFrom(
+      const isDataExist = await lastValueFrom(
         this.httpService.post(
-          this.baseUrl + `/registry/api/v1/${credConfig.schemaName}/invite`,
-          JSON.stringify(data),
-          config,
+          this.baseUrl + `/registry/api/v1/${credConfig.schemaName}/search`,
+          payload,
+          getDataConfig,
         ),
       );
-      console.log(JSON.stringify(response.data));
-      return response.data;
+      console.log('Response:', isDataExist.data);
+      if (isDataExist.data.length > 0) {
+        const updateData = {
+          ...data,
+          status: 'pending',
+        };
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: authToken,
+          },
+          maxBodyLength: Infinity,
+        };
+
+        const response = await lastValueFrom(
+          this.httpService.put(
+            this.baseUrl +
+              `/registry/api/v1/${credConfig.schemaName}/${isDataExist?.data[0]?.osid}`,
+            JSON.stringify(updateData),
+            config,
+          ),
+        );
+        console.log(response);
+        return response.data;
+      } else {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          maxBodyLength: Infinity,
+        };
+
+        console.log('calling invite api');
+        const response = await lastValueFrom(
+          this.httpService.post(
+            this.baseUrl + `/registry/api/v1/${credConfig.schemaName}/invite`,
+            JSON.stringify(data),
+            config,
+          ),
+        );
+        console.log(JSON.stringify(response.data));
+        return response.data;
+      }
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
       throw new HttpException('Duplicate data', error.response?.status || 500);
     }
   }
@@ -100,25 +148,19 @@ export class RegistryService {
           rejectData.vctype.split('/')[0] ||
           rejectData.vctype.split('/')[1]
       ];
-    const data = {
-      status: 'rejected',
-    };
 
     const config = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: authToken,
-        Cookie: 'JSESSIONID=8BF89D1A55B41729876DE84786897796',
       },
-      maxBodyLength: Infinity,
     };
 
     try {
       const response = await lastValueFrom(
-        this.httpService.put(
+        this.httpService.delete(
           this.baseUrl +
             `/registry/api/v1/${credConfig.schemaName}/${resultDataId}`,
-          JSON.stringify(data),
           config,
         ),
       );
@@ -127,7 +169,7 @@ export class RegistryService {
     } catch (error) {
       console.error(error);
       throw new HttpException(
-        'Failed to update results data',
+        'Failed to delete data',
         error.response?.status || 500,
       );
     }

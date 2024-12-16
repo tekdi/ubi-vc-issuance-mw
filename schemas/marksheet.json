@@ -7,31 +7,34 @@
     }
   },
   "required": ["marksheet"],
-  "title": "Marksheet",
+  "title": "marksheet",
   "definitions": {
     "marksheet": {
       "$id": "#/properties/marksheet",
       "type": "object",
       "title": "marksheetSchema",
       "required": [
+        "uniqueId",
         "studentId",
         "firstName",
-        "schoolUniqueCode",
+        "schoolId",
         "schoolName",
         "examDate",
         "academicYear",
         "issuerName"
       ],
-      "uniqueIndexFields": ["studentId"],
+
       "properties": {
         "studentId": {
           "type": "string",
           "title": "Student Identifier"
         },
-        "SchoolId": {
+        "uniqueId": {
           "type": "string",
-          "title": "School Identifier"
+          "title": "Unique ID",
+          "unique": true
         },
+
         "firstName": {
           "type": "string",
           "title": "First Name"
@@ -44,7 +47,7 @@
           "type": "string",
           "title": "Last Name"
         },
-        "schoolUniqueCode": {
+        "schoolId": {
           "type": "string",
           "title": "School Identifier"
         },
@@ -96,6 +99,10 @@
           "type": "string",
           "title": "Name of Issuer"
         },
+        "issuanceDate": {
+          "type": "string",
+          "title": "Issuance Date"
+        },
         "certificateId": {
           "type": "string",
           "title": "Certificate Id"
@@ -108,6 +115,7 @@
     }
   },
   "_osConfig": {
-    "inviteRoles": ["anonymous"]
+    "inviteRoles": ["anonymous"],
+    "uniqueIndexFields": ["uniqueId"]
   }
 }

@@ -181,17 +181,10 @@ export class InspectorController {
 
     //const updatedHtml = html.replace(`alt="QR Code"`, `src="${qrCodeBase64}" alt="QR Code"`);
 
-    const updatedHtml1 = html.replace(
+    const updatedHtml = html.replace(
       /<img\s+[^>]*src=['"]data:image\/png;base64,[^'"]*['"][^>]*>/g,
       `<img src="${qrCodeBase64}" alt="Updated Image">`,
     );
-
-    const updatedHtml = html.replace(
-      /<img\s+[^>]*src=['"](https:\/\/suraj-tekdi\.github\.io\/dsn-dpi-backend-service\/template\/assests\/images\/qrcode\.png)['"][^>]*>/g,
-      `<img src="${qrCodeBase64}" alt="Updated Image">`,
-    );
-
-    //console.log("updatedHtml", updatedHtml)
 
     const fileType = format.split('/')[1] as 'png' | 'jpeg' | 'pdf' | 'html';
 
