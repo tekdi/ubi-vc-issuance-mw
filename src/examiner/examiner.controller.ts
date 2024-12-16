@@ -60,6 +60,7 @@ export class ExaminerController {
         })
         .on('end', async () => {
           const data = await this.examinerService.uploadResult(
+            authToken,
             results,
             documentType,
           );

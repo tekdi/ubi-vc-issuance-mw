@@ -22,8 +22,8 @@
         "dateOfIssuance",
         "certificateNumber"
       ],
-      "uniqueIndexFields": ["studentId"],
       "properties": {
+        "uniqueId": { "type": "string", "title": "Student unique Id" },
         "studentId": {
           "type": "string",
           "title": "Student Identifier"
@@ -39,7 +39,7 @@
         "relationWithApplicant": {
           "type": "string",
           "title": "Relation with Applicant"
-        },      
+        },
         "firstName": {
           "type": "string",
           "title": "First Name"
@@ -136,6 +136,7 @@
     }
   },
   "_osConfig": {
-    "inviteRoles": ["anonymous"]
+    "inviteRoles": ["anonymous"],
+    "uniqueIndexFields": ["uniqueId"]
   }
 }

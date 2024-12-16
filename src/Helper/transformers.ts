@@ -53,6 +53,9 @@ export const tenMarksheetTransformer = (data) => {
 export const marksheet = (data) => {
   return data?.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }-${record.class?.trim() || ''}`,
       studentId: record.studentUniqueId,
       firstName: record.firstName,
       middleName: record.middleName,
@@ -85,6 +88,9 @@ export const marksheet = (data) => {
 export const enrollmentCertificate = (data) => {
   return data.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }-${record.class?.trim() || ''}`,
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
       firstName: record.firstName,
@@ -123,6 +129,9 @@ export const enrollmentCertificate = (data) => {
 export const casteCertificate = (data) => {
   return data.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }`,
       familyLeaderBhamashahNumber: record.familyLeaderBhamashahNumber,
       relationWithApplicant: record.relationWithApplicant,
       studentId: record.studentUniqueId,
@@ -174,6 +183,9 @@ export const casteCertificate = (data) => {
 export const sportsParticipationCertificate = (data) => {
   return data.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }-${record.class?.trim() || ''}`,
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
       firstName: record.firstName,
@@ -224,6 +236,9 @@ export const sportsParticipationCertificate = (data) => {
 export const janAadharCertificate = (data) => {
   return data.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }`,
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
       schoolName: record.schoolName,
@@ -260,6 +275,9 @@ export const janAadharCertificate = (data) => {
 export const incomeCertificate = (data) => {
   return data?.map((record) => {
     return {
+      uniqueId: `${record.schoolId?.trim() || ''}-${
+        record.studentUniqueId?.trim() || ''
+      }`,
       studentId: record.studentUniqueId,
       schoolId: record.schoolId,
       schoolName: record.schoolName,
