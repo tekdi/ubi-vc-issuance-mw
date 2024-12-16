@@ -448,7 +448,7 @@ export class InspectorController {
     try {
       const payload = {
         offset: 0,
-        limit: 100,
+        limit: 10000,
         filters: {
           status: {
             eq: 'issued',
@@ -468,6 +468,7 @@ export class InspectorController {
       const extractedData = data.map((item: any) => ({
         StudentUniqueId: item.studentId || '',
         schoolId: item.schoolId || '',
+        schoolName: item.schoolName || '',
         name: `${item.firstName || ''} ${item.lastName || ''}`.trim(),
         certificateID: item.certificateId || '',
         class: item.class || '',

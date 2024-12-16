@@ -97,6 +97,7 @@ export const enrollmentCertificate = (data) => {
       middleName: record.middleName,
       lastName: record.lastName,
       gradeLevel: record.gradeLevel || record.class || record.division,
+      class: record.gradeLevel || record.class || record.division,
       addressLine1: record.addressLine1,
       addressLine2: record.addressLine2,
       landmark: record.landmark,
